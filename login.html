@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sign In with Google &mdash; Spice Route</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .auth-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 20px 60px; background: radial-gradient(circle at center, #231209 0%, #0D0808 100%); }
+  .auth-box { max-width: 440px; width: 100%; background: #180C06; border: 1px solid rgba(212,175,55,0.25); padding: 44px 34px; border-radius: 6px; box-shadow: 0 16px 48px rgba(0,0,0,0.85); text-align: center; }
+  .auth-hd { margin-bottom: 28px; }
+  .auth-hd .om { font-size: 2.4rem; color: var(--saffron); }
+  .auth-hd h1 { font-family: var(--ff-serif); color: #fff; font-size: 1.85rem; margin: 8px 0 6px; }
+  .auth-hd p { color: var(--muted); font-size: 0.85rem; }
+
+  .btn-google { width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; background: #fff; color: #333; border: none; font-family: var(--ff-sans); font-size: 0.92rem; font-weight: 600; padding: 14px; cursor: pointer; border-radius: 4px; transition: 0.25s; margin: 24px 0 16px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+  .btn-google:hover { background: #f1f1f1; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255,255,255,0.15); }
+  .btn-google svg { width: 20px; height: 20px; }
+
+  .auth-benefits { background: #231209; border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 4px; margin: 22px 0 16px; text-align: left; }
+  .auth-benefits div { display: flex; align-items: center; gap: 10px; font-size: 0.8rem; color: #E5D5C5; margin-bottom: 8px; }
+  .auth-benefits div:last-child { margin-bottom: 0; }
+  .auth-benefits span { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo"><span class="om">&#2384;</span><span>Spice Route</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="menu.html" class="btn btn-saffron" style="padding:8px 18px;font-size:0.7rem">Order Food Online</a>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-box" id="authCardBox">
+    <div class="auth-hd">
+      <div class="om">&#2384;</div>
+      <h1>Sign In with Google</h1>
+      <p>Instant sign-in for fast online food ordering &amp; doorstep delivery</p>
+    </div>
+
+    <button class="btn-google" onclick="signInWithGoogle()">
+      <svg viewBox="0 0 48 48">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.55 10.78l7.98-6.19z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+      </svg>
+      Continue with Google
+    </button>
+
+    <div class="auth-benefits">
+      <div><span>&#10004;</span> Instant 1-Click Secure Sign In</div>
+      <div><span>&#10004;</span> Track Live Food Preparation &amp; Delivery</div>
+      <div><span>&#10004;</span> Automated Tax Invoice / Bill PDF Downloads</div>
+    </div>
+
+    <div style="font-size:0.75rem;color:var(--muted)">
+      By signing in, you agree to Spice Route's Terms of Service &amp; Privacy Policy
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>

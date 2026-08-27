@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About Us — Spice Route Online Food Delivery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo"><span class="om">&#2384;</span><span>Spice Route</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="">Home</a></li>
+      <li><a href="menu.html" class="">Menu</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html" class="">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+        &#128722; Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a href="menu.html" class="btn-book" style="letter-spacing:1.5px">Order Food</a>
+      <button class="hamburger" id="hamburger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <span class="sec-label">Our Heritage</span>
+    <h1>The Heart Behind <em>Spice Route</em></h1>
+    <p>Crafting authentic Indian recipes with passion and delivering culinary excellence to your home.</p>
+  </div>
+</div>
+
+<section class="about-story section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="fade-in">
+        <img class="about-img" src="images/hero-bg.jpg" alt="Spice Route Kitchen"/>
+      </div>
+      <div class="about-text fade-in">
+        <span class="sec-label">Our Mission</span>
+        <h2 class="sec-title">Rooted in Tradition, <em>Delivered Hot</em> to You</h2>
+        <p>Spice Route was founded in 2008 in the historic lanes of Old Delhi with a mission to bring royal Indian dining directly to people's homes. We believe that delivery food should never compromise on taste, authenticity, or presentation.</p>
+        <p>Our master chefs prepare every order fresh upon receipt, using time-tested brass and clay handi cooking methods, pure ghee, and whole spices ground daily in-house.</p>
+        <p>Every dish is packed in eco-friendly, heat-retaining containers and delivered across Delhi NCR by our dedicated delivery fleet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="contact-footer">
+  <div class="footer-top"></div>
+  <div class="container footer-grid">
+    <div class="ft-brand">
+      <a href="index.html" class="logo"><span class="om">&#2384;</span><span>Spice Route</span></a>
+      <p>Authentic flavours of India, freshly cooked with premium ingredients, delivered hot to your doorstep.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">&#128247;</a>
+        <a href="#" aria-label="Facebook">&#128218;</a>
+        <a href="#" aria-label="YouTube">&#127909;</a>
+        <a href="#" aria-label="Twitter">&#128038;</a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li><li><a href="menu.html">Explore Menu</a></li>
+        <li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Support</a></li>
+      </ul>
+    </div>
+    <div class="ft-col"><h4>Delivery Timings</h4>
+      <ul class="hours">
+        <li><span>Mon &ndash; Fri</span><span>11AM&ndash;11PM</span></li>
+        <li><span>Sat &ndash; Sun</span><span>10AM&ndash;11PM</span></li>
+        <li><span>Delivery</span><span>30&ndash;45 Mins</span></li>
+      </ul>
+    </div>
+    <div class="ft-col"><h4>Contact &amp; Orders</h4>
+      <ul>
+        <li>&#128222; +91 98765 43210</li>
+        <li>&#9993; orders@spiceroute.in</li>
+        <li>&#128205; Chandni Chowk, Old Delhi</li>
+        <li>&#128666; Superfast Doorstep Delivery</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom"><p>&copy; 2026 Spice Route Online Indian Food Ordering &mdash; Made with &#10084; &amp; Masala</p></div>
+</footer>
+<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="data.js"></script>
+  <script src="cart.js"></script>
+  <script src="auth.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</body>
+</html>
