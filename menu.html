@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Menu — Spice Route Online Food Delivery</title>
+<title>Menu — Spice Route Indian Restaurant</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
@@ -30,557 +30,159 @@
 
 <div class="page-header">
   <div class="container">
-    <span class="sec-label">Online Food Menu</span>
-    <h1>50 Delicious Indian <em>Dishes</em></h1>
-    <p>Tap any dish for ingredients &amp; nutrition. Add to cart &bull; Enter delivery address &bull; Pay with Razorpay &bull; Download Bill</p>
+    <span class="sec-label">Category-Wise Food Menu</span>
+    <h1>Explore Our <em>Menu</em></h1>
+    <p>Hand-crafted Veg, Non-Veg, Snacks &amp; Refreshing Drinks. Tap any dish for ingredients &bull; Doorstep Delivery &bull; Free UPI &amp; Dynamic QR</p>
   </div>
 </div>
 
 <section class="menu-sec">
   <div class="container">
 
-    <div class="menu-tabs fade-in" id="menuTabs">
-      <button class="mtab active" data-tab="starters">&#127825; Starters</button>
-      <button class="mtab " data-tab="breads">&#127838; Breads &amp; Soups</button>
-      <button class="mtab " data-tab="veg">&#129382; Veg Mains</button>
-      <button class="mtab " data-tab="nonveg">&#127831; Non-Veg Mains</button>
-      <button class="mtab " data-tab="desserts">&#127854; Desserts &amp; Drinks</button>
+    <div class="menu-tabs fade-in" id="menuTabs" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:30px">
+      <button class="mtab active" data-tab="veg">🥗 Veg</button>
+      <button class="mtab " data-tab="nonveg">🍗 Non-Veg</button>
+      <button class="mtab " data-tab="snacks">🥟 Snacks</button>
+      <button class="mtab " data-tab="drinks">🥤 Drinks & Beverages</button>
     </div>
 
-
-    <div class="tab-pane active" id="starters"><div class="menu-grid">
-        <div class="dish-card fade-in" data-id="samosa">
-          <div class="dish-img-wrap" onclick="openModal('samosa')">
+    <div class="tab-pane active" id="veg"><div class="menu-grid">
+        <div class="dish-card fade-in" data-id="masaladosa">
+          <div class="dish-img-wrap" onclick="openModal('masaladosa')">
             
-            <img src="images/samosa.jpg" alt="Samosa Chaat"
+            <img src="images/masala-dosa.jpg" alt="Classic Masala Dosa"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129455;</div>
+            <div class="img-fallback">🥞</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Samosa Chaat</h3>
+              <h3>Classic Masala Dosa</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Crispy samosas topped with chole, sweet chutneys, yoghurt and sev. A street-food classic e...</p>
-            <div class="dish-info"><span class="cal">310 kcal</span><span class="spice">Medium</span></div>
+            <p class="dish-desc">Crispy golden fermented rice & lentil crepe spread with spiced potato bhaji, cooked in pure ghee. Served with ...</p>
+            <div class="dish-info"><span class="cal">340 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;180</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'samosa',-1)">&#8722;</button>
-                <span id="qty-samosa">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'samosa',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'masaladosa',-1)">&#8722;</button>
+                <span id="qty-masaladosa">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'masaladosa',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'samosa','Samosa Chaat',180)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'masaladosa','Classic Masala Dosa',180)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="ptikka">
-          <div class="dish-img-wrap" onclick="openModal('ptikka')">
+        <div class="dish-card fade-in" data-id="mysoredosa">
+          <div class="dish-img-wrap" onclick="openModal('mysoredosa')">
+            <span class="new-tag">New</span>
+            <img src="images/mysore-masala-dosa.jpg" alt="Mysore Masala Dosa"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🥞</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Mysore Masala Dosa</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Crispy dosa layered with spicy red garlic-chilli paste, stuffed with potato masala and folded with a generous ...</p>
+            <div class="dish-info"><span class="cal">390 kcal</span><span class="spice">Medium</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;210</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'mysoredosa',-1)">&#8722;</button>
+                <span id="qty-mysoredosa">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'mysoredosa',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'mysoredosa','Mysore Masala Dosa',210)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="idlisambar">
+          <div class="dish-img-wrap" onclick="openModal('idlisambar')">
             
-            <img src="images/paneer-tikka.jpg" alt="Paneer Tikka"
+            <img src="images/idli-sambar.jpg" alt="Steamed Idli Sambar (3 pcs)"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129472;</div>
+            <div class="img-fallback">⚪</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Paneer Tikka</h3>
+              <h3>Steamed Idli Sambar (3 pcs)</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Marinated cottage cheese cubes grilled in tandoor with bell peppers, onions and mint chutn...</p>
-            <div class="dish-info"><span class="cal">380 kcal</span><span class="spice">Mild</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;320</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'ptikka',-1)">&#8722;</button>
-                <span id="qty-ptikka">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'ptikka',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'ptikka','Paneer Tikka',320)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="ctikka">
-          <div class="dish-img-wrap" onclick="openModal('ctikka')">
-            
-            <img src="images/chicken-tikka.jpg" alt="Chicken Malai Tikka"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127831;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Chicken Malai Tikka</h3>
-              <span class="badge nonveg">NON-VEG</span>
-            </div>
-            <p class="dish-desc">Tender chicken marinated in cream, cashew paste and mild spices. Melt-in-mouth texture fro...</p>
-            <div class="dish-info"><span class="cal">420 kcal</span><span class="spice">Mild</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;380</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'ctikka',-1)">&#8722;</button>
-                <span id="qty-ctikka">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'ctikka',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'ctikka','Chicken Malai Tikka',380)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="dahipuri">
-          <div class="dish-img-wrap" onclick="openModal('dahipuri')">
-            
-            <img src="images/dahi-puri.jpg" alt="Dahi Puri"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129381;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Dahi Puri</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Hollow puris filled with spiced potato, sweet yoghurt, tamarind and green chutney. Mumbai ...</p>
-            <div class="dish-info"><span class="cal">220 kcal</span><span class="spice">Mild</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;150</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'dahipuri',-1)">&#8722;</button>
-                <span id="qty-dahipuri">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'dahipuri',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'dahipuri','Dahi Puri',150)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="seekh">
-          <div class="dish-img-wrap" onclick="openModal('seekh')">
-            
-            <img src="images/seekh-kebab.jpg" alt="Veg Seekh Kebab"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127830;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Veg Seekh Kebab</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Minced vegetables and paneer shaped on skewers, grilled in tandoor with chaat masala finis...</p>
-            <div class="dish-info"><span class="cal">290 kcal</span><span class="spice">Medium</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;280</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'seekh',-1)">&#8722;</button>
-                <span id="qty-seekh">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'seekh',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'seekh','Veg Seekh Kebab',280)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="papdi">
-          <div class="dish-img-wrap" onclick="openModal('papdi')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/papdi-chaat.jpg" alt="Papdi Chaat"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129479;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Papdi Chaat</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Crispy flour crisps layered with boiled potato, chickpeas, chutneys and fresh yoghurt. Del...</p>
-            <div class="dish-info"><span class="cal">280 kcal</span><span class="spice">Medium</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;160</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'papdi',-1)">&#8722;</button>
-                <span id="qty-papdi">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'papdi',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'papdi','Papdi Chaat',160)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="alootikki">
-          <div class="dish-img-wrap" onclick="openModal('alootikki')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/aloo-tikki.jpg" alt="Aloo Tikki"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127839;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Aloo Tikki</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Golden potato cutlets spiced with cumin and coriander, pan-fried crispy. Served with chutn...</p>
-            <div class="dish-info"><span class="cal">250 kcal</span><span class="spice">Medium</span></div>
+            <p class="dish-desc">Pillow-soft, fluffy fermented rice cakes steamed fresh to order, served immersed in aromatic piping hot drumst...</p>
+            <div class="dish-info"><span class="cal">210 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;140</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'alootikki',-1)">&#8722;</button>
-                <span id="qty-alootikki">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'alootikki',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'idlisambar',-1)">&#8722;</button>
+                <span id="qty-idlisambar">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'idlisambar',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'alootikki','Aloo Tikki',140)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'idlisambar','Steamed Idli Sambar (3 pcs)',140)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="harabharakabab">
-          <div class="dish-img-wrap" onclick="openModal('harabharakabab')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/hara-bhara-kabab.jpg" alt="Hara Bhara Kabab"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129382;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Hara Bhara Kabab</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Vibrant green spinach, peas and paneer patties infused with herbs. Served with mint chutne...</p>
-            <div class="dish-info"><span class="cal">230 kcal</span><span class="spice">Mild</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;260</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'harabharakabab',-1)">&#8722;</button>
-                <span id="qty-harabharakabab">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'harabharakabab',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'harabharakabab','Hara Bhara Kabab',260)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="fishamritsari">
-          <div class="dish-img-wrap" onclick="openModal('fishamritsari')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/fish-amritsari.jpg" alt="Fish Amritsari"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#128031;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Fish Amritsari</h3>
-              <span class="badge nonveg">NON-VEG</span>
-            </div>
-            <p class="dish-desc">Crispy battered fish marinated in Amritsari spices and deep fried golden. A Punjabi specia...</p>
-            <div class="dish-info"><span class="cal">390 kcal</span><span class="spice">Hot</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;360</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'fishamritsari',-1)">&#8722;</button>
-                <span id="qty-fishamritsari">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'fishamritsari',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'fishamritsari','Fish Amritsari',360)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="muttongalouti">
-          <div class="dish-img-wrap" onclick="openModal('muttongalouti')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/mutton-galouti.jpg" alt="Mutton Galouti Kebab"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129385;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Mutton Galouti Kebab</h3>
-              <span class="badge nonveg">NON-VEG</span>
-            </div>
-            <p class="dish-desc">Melt-in-mouth minced mutton kebab with 100 spices, grilled on tawa. Lucknowi royal heritag...</p>
-            <div class="dish-info"><span class="cal">420 kcal</span><span class="spice">Medium</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;440</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'muttongalouti',-1)">&#8722;</button>
-                <span id="qty-muttongalouti">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'muttongalouti',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'muttongalouti','Mutton Galouti Kebab',440)">+ Add</button>
-            </div>
-          </div>
-        </div>
-    </div></div>
-
-    <div class="tab-pane " id="breads"><div class="menu-grid">
-        <div class="dish-card fade-in" data-id="shorba">
-          <div class="dish-img-wrap" onclick="openModal('shorba')">
+        <div class="dish-card fade-in" data-id="meduvada">
+          <div class="dish-img-wrap" onclick="openModal('meduvada')">
             
-            <img src="images/tomato-shorba.jpg" alt="Tamatar Shorba"
+            <img src="images/medu-vada.jpg" alt="Crispy Medu Vada (2 pcs)"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127858;</div>
+            <div class="img-fallback">🍩</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Tamatar Shorba</h3>
+              <h3>Crispy Medu Vada (2 pcs)</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Royal Mughlai tomato soup with fresh cream, cardamom, ginger and coriander. Silky smooth....</p>
-            <div class="dish-info"><span class="cal">160 kcal</span><span class="spice">Mild</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;160</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'shorba',-1)">&#8722;</button>
-                <span id="qty-shorba">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'shorba',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'shorba','Tamatar Shorba',160)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="daltadka">
-          <div class="dish-img-wrap" onclick="openModal('daltadka')">
-            
-            <img src="images/dal-tadka.jpg" alt="Dal Tadka"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129365;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Dal Tadka</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Yellow lentils tempered with cumin, garlic, dried red chillies and ghee. Soul-warming comf...</p>
-            <div class="dish-info"><span class="cal">240 kcal</span><span class="spice">Mild</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;220</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'daltadka',-1)">&#8722;</button>
-                <span id="qty-daltadka">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'daltadka',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'daltadka','Dal Tadka',220)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="naan">
-          <div class="dish-img-wrap" onclick="openModal('naan')">
-            
-            <img src="images/garlic-naan.jpg" alt="Garlic Butter Naan"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129362;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Garlic Butter Naan</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Soft leavened bread baked in tandoor, brushed with garlic butter and coriander....</p>
-            <div class="dish-info"><span class="cal">260 kcal</span><span class="spice">None</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;80</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'naan',-1)">&#8722;</button>
-                <span id="qty-naan">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'naan',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'naan','Garlic Butter Naan',80)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="roti">
-          <div class="dish-img-wrap" onclick="openModal('roti')">
-            
-            <img src="images/tandoori-roti.jpg" alt="Tandoori Roti"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129362;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Tandoori Roti</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Whole wheat flatbread cooked directly on tandoor walls. Light, wholesome, traditional....</p>
-            <div class="dish-info"><span class="cal">120 kcal</span><span class="spice">None</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;40</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'roti',-1)">&#8722;</button>
-                <span id="qty-roti">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'roti',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'roti','Tandoori Roti',40)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="basket">
-          <div class="dish-img-wrap" onclick="openModal('basket')">
-            
-            <img src="images/bread-basket.jpg" alt="Royal Bread Basket"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127838;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Royal Bread Basket</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Assorted naan, paratha, kulcha and missi roti. Served with three dipping chutneys....</p>
-            <div class="dish-info"><span class="cal">480 kcal</span><span class="spice">None</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;180</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'basket',-1)">&#8722;</button>
-                <span id="qty-basket">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'basket',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'basket','Royal Bread Basket',180)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="mulligatawny">
-          <div class="dish-img-wrap" onclick="openModal('mulligatawny')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/mulligatawny.jpg" alt="Mulligatawny Soup"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127858;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Mulligatawny Soup</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Anglo-Indian lentil soup with coconut milk, curry leaves, tamarind and South Indian spices...</p>
-            <div class="dish-info"><span class="cal">200 kcal</span><span class="spice">Medium</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;180</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'mulligatawny',-1)">&#8722;</button>
-                <span id="qty-mulligatawny">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'mulligatawny',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'mulligatawny','Mulligatawny Soup',180)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="peshwarinaan">
-          <div class="dish-img-wrap" onclick="openModal('peshwarinaan')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/peshwari-naan.jpg" alt="Peshwari Naan"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129362;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Peshwari Naan</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Soft naan stuffed with coconut, almonds and sultanas. Sweet, fragrant, indulgent....</p>
-            <div class="dish-info"><span class="cal">310 kcal</span><span class="spice">None</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;100</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'peshwarinaan',-1)">&#8722;</button>
-                <span id="qty-peshwarinaan">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'peshwarinaan',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'peshwarinaan','Peshwari Naan',100)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="lacchaparatha">
-          <div class="dish-img-wrap" onclick="openModal('lacchaparatha')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/lachha-paratha.jpg" alt="Lachha Paratha"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129362;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Lachha Paratha</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Flaky layered whole wheat flatbread, coated in ghee. Crispy outside, soft inside....</p>
-            <div class="dish-info"><span class="cal">180 kcal</span><span class="spice">None</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;60</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'lacchaparatha',-1)">&#8722;</button>
-                <span id="qty-lacchaparatha">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'lacchaparatha',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'lacchaparatha','Lachha Paratha',60)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="stuffedkulcha">
-          <div class="dish-img-wrap" onclick="openModal('stuffedkulcha')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/stuffed-kulcha.jpg" alt="Stuffed Kulcha"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129362;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Stuffed Kulcha</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Leavened bread stuffed with spiced potato and paneer, baked in tandoor. Classic Amritsari....</p>
+            <p class="dish-desc">Traditional doughnut-shaped lentil fritters, intensely crispy on the outside and pillowy soft inside, spiced w...</p>
             <div class="dish-info"><span class="cal">290 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
-              <span class="price">&#8377;120</span>
+              <span class="price">&#8377;150</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'stuffedkulcha',-1)">&#8722;</button>
-                <span id="qty-stuffedkulcha">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'stuffedkulcha',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'meduvada',-1)">&#8722;</button>
+                <span id="qty-meduvada">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'meduvada',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'stuffedkulcha','Stuffed Kulcha',120)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'meduvada','Crispy Medu Vada (2 pcs)',150)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="missiroti">
-          <div class="dish-img-wrap" onclick="openModal('missiroti')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/missi-roti.jpg" alt="Missi Roti"
+        <div class="dish-card fade-in" data-id="gkeepongal">
+          <div class="dish-img-wrap" onclick="openModal('gkeepongal')">
+            <span class="new-tag">New</span>
+            <img src="images/ven-pongal.jpg" alt="Ghee Ven Pongal"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129362;</div>
+            <div class="img-fallback">🍚</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Missi Roti</h3>
+              <h3>Ghee Ven Pongal</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Whole wheat and chickpea flour flatbread with fenugreek and spices. Rustic and nutritious....</p>
-            <div class="dish-info"><span class="cal">140 kcal</span><span class="spice">Mild</span></div>
+            <p class="dish-desc">Comforting South Indian dish made of rice and yellow moong dal cooked to creamy perfection, tempered generousl...</p>
+            <div class="dish-info"><span class="cal">380 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
-              <span class="price">&#8377;50</span>
+              <span class="price">&#8377;190</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'missiroti',-1)">&#8722;</button>
-                <span id="qty-missiroti">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'missiroti',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'gkeepongal',-1)">&#8722;</button>
+                <span id="qty-gkeepongal">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'gkeepongal',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'missiroti','Missi Roti',50)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'gkeepongal','Ghee Ven Pongal',190)">+ Add</button>
             </div>
           </div>
         </div>
-    </div></div>
-
-    <div class="tab-pane " id="veg"><div class="menu-grid">
         <div class="dish-card fade-in" data-id="pbm">
           <div class="dish-img-wrap" onclick="openModal('pbm')">
             
             <img src="images/paneer-butter-masala.jpg" alt="Paneer Butter Masala"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127859;</div>
+            <div class="img-fallback">🍲</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
@@ -588,7 +190,7 @@
               <h3>Paneer Butter Masala</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Rich tomato-cream gravy with soft paneer cubes, kasuri methi and butter. North India favou...</p>
+            <p class="dish-desc">Velvety tomato-cashew gravy with soft paneer cubes, infused with aromatic kasuri methi and finished with fresh...</p>
             <div class="dish-info"><span class="cal">420 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;320</span>
@@ -601,12 +203,38 @@
             </div>
           </div>
         </div>
+        <div class="dish-card fade-in" data-id="dalm">
+          <div class="dish-img-wrap" onclick="openModal('dalm')">
+            
+            <img src="images/dal-makhani.jpg" alt="Dal Makhani (Overnight Simmered)"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🍲</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Dal Makhani (Overnight Simmered)</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Whole black lentils and kidney beans slow-cooked for 16 hours over charcoal tandoor with tomato puree, white b...</p>
+            <div class="dish-info"><span class="cal">390 kcal</span><span class="spice">Mild</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;280</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'dalm',-1)">&#8722;</button>
+                <span id="qty-dalm">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'dalm',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'dalm','Dal Makhani (Overnight Simmered)',280)">+ Add</button>
+            </div>
+          </div>
+        </div>
         <div class="dish-card fade-in" data-id="palak">
           <div class="dish-img-wrap" onclick="openModal('palak')">
             
             <img src="images/palak-paneer.jpg" alt="Palak Paneer"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129382;</div>
+            <div class="img-fallback">🥬</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
@@ -614,7 +242,7 @@
               <h3>Palak Paneer</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Blanched spinach puree with cottage cheese, garam masala and ginger. Nutritious and aromat...</p>
+            <p class="dish-desc">Fresh blanched spinach puree tempered with garlic, cumin, and mild spices, gently simmered with soft cottage c...</p>
             <div class="dish-info"><span class="cal">360 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;300</span>
@@ -627,142 +255,12 @@
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="dalm">
-          <div class="dish-img-wrap" onclick="openModal('dalm')">
-            
-            <img src="images/dal-makhani.jpg" alt="Dal Makhani"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129365;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Dal Makhani</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Slow-cooked black lentils with butter, cream and tomatoes simmered overnight. Legendary....</p>
-            <div class="dish-info"><span class="cal">390 kcal</span><span class="spice">Mild</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;280</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'dalm',-1)">&#8722;</button>
-                <span id="qty-dalm">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'dalm',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'dalm','Dal Makhani',280)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="chana">
-          <div class="dish-img-wrap" onclick="openModal('chana')">
-            
-            <img src="images/chana-masala.jpg" alt="Chana Masala"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129384;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Chana Masala</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Hearty chickpeas in tangy spiced tomato gravy with amchur, cumin and coriander....</p>
-            <div class="dish-info"><span class="cal">340 kcal</span><span class="spice">Medium</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;260</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'chana',-1)">&#8722;</button>
-                <span id="qty-chana">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'chana',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'chana','Chana Masala',260)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="vbiriyani">
-          <div class="dish-img-wrap" onclick="openModal('vbiriyani')">
-            
-            <img src="images/veg-biryani.jpg" alt="Veg Dum Biryani"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127859;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Veg Dum Biryani</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Fragrant basmati layered with seasonal vegetables, saffron and rose water. Sealed dum-styl...</p>
-            <div class="dish-info"><span class="cal">520 kcal</span><span class="spice">Medium</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;340</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'vbiriyani',-1)">&#8722;</button>
-                <span id="qty-vbiriyani">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'vbiriyani',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'vbiriyani','Veg Dum Biryani',340)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="navratankorma">
-          <div class="dish-img-wrap" onclick="openModal('navratankorma')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/navratan-korma.jpg" alt="Navratan Korma"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127859;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Navratan Korma</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Nine-jewel curry with mixed vegetables, fruits, paneer and nuts in rich cashew gravy....</p>
-            <div class="dish-info"><span class="cal">380 kcal</span><span class="spice">Mild</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;320</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'navratankorma',-1)">&#8722;</button>
-                <span id="qty-navratankorma">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'navratankorma',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'navratankorma','Navratan Korma',320)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="baingan">
-          <div class="dish-img-wrap" onclick="openModal('baingan')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/baingan-bharta.jpg" alt="Baingan Bharta"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129382;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Baingan Bharta</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Smoky fire-roasted aubergine mashed with tomatoes, onions, ginger and mustard oil....</p>
-            <div class="dish-info"><span class="cal">210 kcal</span><span class="spice">Medium</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;260</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'baingan',-1)">&#8722;</button>
-                <span id="qty-baingan">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'baingan',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'baingan','Baingan Bharta',260)">+ Add</button>
-            </div>
-          </div>
-        </div>
         <div class="dish-card fade-in" data-id="kadaipaneer">
           <div class="dish-img-wrap" onclick="openModal('kadaipaneer')">
-            <div class="new-ribbon">NEW</div>
+            
             <img src="images/kadai-paneer.jpg" alt="Kadai Paneer"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127859;</div>
+            <div class="img-fallback">🥘</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
@@ -770,7 +268,7 @@
               <h3>Kadai Paneer</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Paneer and peppers cooked in freshly ground coriander-chilli masala in an iron kadai....</p>
+            <p class="dish-desc">Cottage cheese cubes and crunchy bell peppers tossed with freshly pounded coriander seeds and dry red chillies...</p>
             <div class="dish-info"><span class="cal">350 kcal</span><span class="spice">Medium</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;310</span>
@@ -783,75 +281,204 @@
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="rajma">
-          <div class="dish-img-wrap" onclick="openModal('rajma')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/rajma-masala.jpg" alt="Rajma Masala"
+        <div class="dish-card fade-in" data-id="malaikofta">
+          <div class="dish-img-wrap" onclick="openModal('malaikofta')">
+            <span class="new-tag">New</span>
+            <img src="images/malai-kofta.jpg" alt="Shahi Malai Kofta"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129384;</div>
+            <div class="img-fallback">🍲</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Rajma Masala</h3>
+              <h3>Shahi Malai Kofta</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Slow-cooked kidney beans in thick spiced onion-tomato gravy. Punjab comfort food at its be...</p>
-            <div class="dish-info"><span class="cal">320 kcal</span><span class="spice">Mild</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;240</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'rajma',-1)">&#8722;</button>
-                <span id="qty-rajma">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'rajma',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'rajma','Rajma Masala',240)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="shahipaneer">
-          <div class="dish-img-wrap" onclick="openModal('shahipaneer')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/shahi-paneer.jpg" alt="Shahi Paneer"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129472;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Shahi Paneer</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Paneer in luxurious saffron-infused cream and nut gravy. A Mughal royal recipe....</p>
+            <p class="dish-desc">Melt-in-mouth dumplings of paneer, khoya and dry fruits fried golden and served in a luxurious, creamy cashew-...</p>
             <div class="dish-info"><span class="cal">460 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;340</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'shahipaneer',-1)">&#8722;</button>
-                <span id="qty-shahipaneer">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'shahipaneer',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'malaikofta',-1)">&#8722;</button>
+                <span id="qty-malaikofta">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'malaikofta',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'shahipaneer','Shahi Paneer',340)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'malaikofta','Shahi Malai Kofta',340)">+ Add</button>
             </div>
           </div>
         </div>
-    </div></div>
-
-    <div class="tab-pane " id="nonveg"><div class="menu-grid">
-        <div class="dish-card fade-in" data-id="bc">
-          <div class="dish-img-wrap" onclick="openModal('bc')">
+        <div class="dish-card fade-in" data-id="chana">
+          <div class="dish-img-wrap" onclick="openModal('chana')">
             
-            <img src="images/butter-chicken.jpg" alt="Butter Chicken"
+            <img src="images/chana-masala.jpg" alt="Pindi Chana Masala"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127831;</div>
+            <div class="img-fallback">🥘</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Butter Chicken</h3>
+              <h3>Pindi Chana Masala</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Amritsari style dark chickpeas boiled with black tea leaves, tossed in aromatic dry spices, pomegranate seeds ...</p>
+            <div class="dish-info"><span class="cal">340 kcal</span><span class="spice">Medium</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;260</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'chana',-1)">&#8722;</button>
+                <span id="qty-chana">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'chana',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'chana','Pindi Chana Masala',260)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="sarsonkasaag">
+          <div class="dish-img-wrap" onclick="openModal('sarsonkasaag')">
+            <span class="new-tag">New</span>
+            <img src="images/sarson-saag.jpg" alt="Sarson Ka Saag (with Makki Roti)"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🥬</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Sarson Ka Saag (with Makki Roti)</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Authentic winter Punjabi mustard greens slow-cooked with bathua, spinach, and makki atta, tempered with ginger...</p>
+            <div class="dish-info"><span class="cal">440 kcal</span><span class="spice">Medium</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;310</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'sarsonkasaag',-1)">&#8722;</button>
+                <span id="qty-sarsonkasaag">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'sarsonkasaag',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'sarsonkasaag','Sarson Ka Saag (with Makki Roti)',310)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="vbiriyani">
+          <div class="dish-img-wrap" onclick="openModal('vbiriyani')">
+            
+            <img src="images/veg-biryani.jpg" alt="Hyderabadi Veg Dum Biryani"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🍚</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Hyderabadi Veg Dum Biryani</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Fragrant basmati rice layered with seasonal vegetables, saffron, mint, and fried onions, slow-cooked in handi ...</p>
+            <div class="dish-info"><span class="cal">520 kcal</span><span class="spice">Medium</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;340</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'vbiriyani',-1)">&#8722;</button>
+                <span id="qty-vbiriyani">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'vbiriyani',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'vbiriyani','Hyderabadi Veg Dum Biryani',340)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="curdrice">
+          <div class="dish-img-wrap" onclick="openModal('curdrice')">
+            
+            <img src="images/curd-rice.jpg" alt="Temple Style Curd Rice"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🍚</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Temple Style Curd Rice</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Creamy soft cooked rice blended with fresh homemade curd and milk, tempered with mustard seeds, curry leaves, ...</p>
+            <div class="dish-info"><span class="cal">260 kcal</span><span class="spice">Mild</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;160</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'curdrice',-1)">&#8722;</button>
+                <span id="qty-curdrice">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'curdrice',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'curdrice','Temple Style Curd Rice',160)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="garlicnaan">
+          <div class="dish-img-wrap" onclick="openModal('garlicnaan')">
+            
+            <img src="images/garlic-naan.jpg" alt="Garlic Butter Naan"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🫓</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Garlic Butter Naan</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Soft leavened flatbread baked in clay tandoor, topped with minced garlic, fresh coriander, and brushed with me...</p>
+            <div class="dish-info"><span class="cal">260 kcal</span><span class="spice">None</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;80</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'garlicnaan',-1)">&#8722;</button>
+                <span id="qty-garlicnaan">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'garlicnaan',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'garlicnaan','Garlic Butter Naan',80)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="amritsarikulcha">
+          <div class="dish-img-wrap" onclick="openModal('amritsarikulcha')">
+            
+            <img src="images/stuffed-kulcha.jpg" alt="Amritsari Aloo Kulcha"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🫓</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Amritsari Aloo Kulcha</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Crispy layered tandoor-baked bread stuffed with spiced mashed potatoes, onions, anardana, and green chillies, ...</p>
+            <div class="dish-info"><span class="cal">290 kcal</span><span class="spice">Mild</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;120</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'amritsarikulcha',-1)">&#8722;</button>
+                <span id="qty-amritsarikulcha">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'amritsarikulcha',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'amritsarikulcha','Amritsari Aloo Kulcha',120)">+ Add</button>
+            </div>
+          </div>
+        </div>
+    </div></div>
+    <div class="tab-pane " id="nonveg"><div class="menu-grid">
+        <div class="dish-card fade-in" data-id="bc">
+          <div class="dish-img-wrap" onclick="openModal('bc')">
+            
+            <img src="images/butter-chicken.jpg" alt="Old Delhi Butter Chicken"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🍗</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Old Delhi Butter Chicken</h3>
               <span class="badge nonveg">NON-VEG</span>
             </div>
-            <p class="dish-desc">Tandoor-grilled chicken in velvety tomato-cream sauce with fenugreek and aromatic spices....</p>
+            <p class="dish-desc">Tandoor-charred chicken pieces simmered in silky smooth, mildly spiced tomato gravy with honey, butter, fenugr...</p>
             <div class="dish-info"><span class="cal">480 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;420</span>
@@ -860,7 +487,33 @@
                 <span id="qty-bc">1</span>
                 <button class="qty-btn" onclick="changeQty(event,'bc',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'bc','Butter Chicken',420)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'bc','Old Delhi Butter Chicken',420)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="cbiriyani">
+          <div class="dish-img-wrap" onclick="openModal('cbiriyani')">
+            
+            <img src="images/chicken-biryani.jpg" alt="Hyderabadi Chicken Dum Biryani"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🍗</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Hyderabadi Chicken Dum Biryani</h3>
+              <span class="badge nonveg">NON-VEG</span>
+            </div>
+            <p class="dish-desc">Authentic Kachchi Dum Biryani: tender bone-in chicken marinated overnight in spices and curd, slow-cooked in h...</p>
+            <div class="dish-info"><span class="cal">680 kcal</span><span class="spice">Medium</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;380</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'cbiriyani',-1)">&#8722;</button>
+                <span id="qty-cbiriyani">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'cbiriyani',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'cbiriyani','Hyderabadi Chicken Dum Biryani',380)">+ Add</button>
             </div>
           </div>
         </div>
@@ -869,7 +522,7 @@
             
             <img src="images/rogan-josh.jpg" alt="Mutton Rogan Josh"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129385;</div>
+            <div class="img-fallback">🥩</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
@@ -877,7 +530,7 @@
               <h3>Mutton Rogan Josh</h3>
               <span class="badge nonveg">NON-VEG</span>
             </div>
-            <p class="dish-desc">Slow-braised Kashmiri mutton in aromatic gravy of fennel, dried ginger and whole spices....</p>
+            <p class="dish-desc">Succulent chunks of bone-in mutton slow-braised in an aromatic crimson gravy infused with Kashmiri red chillie...</p>
             <div class="dish-info"><span class="cal">560 kcal</span><span class="spice">Hot</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;480</span>
@@ -890,20 +543,46 @@
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="fish">
-          <div class="dish-img-wrap" onclick="openModal('fish')">
-            
-            <img src="images/fish-curry.jpg" alt="Kerala Fish Curry"
+        <div class="dish-card fade-in" data-id="chettinadchicken">
+          <div class="dish-img-wrap" onclick="openModal('chettinadchicken')">
+            <span class="new-tag">New</span>
+            <img src="images/chettinad-chicken.jpg" alt="Chettinad Spicy Chicken Curry"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#128031;</div>
+            <div class="img-fallback">🍗</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Kerala Fish Curry</h3>
+              <h3>Chettinad Spicy Chicken Curry</h3>
               <span class="badge nonveg">NON-VEG</span>
             </div>
-            <p class="dish-desc">Fresh coastal fish in tangy coconut-tamarind gravy with curry leaves and raw mango....</p>
+            <p class="dish-desc">Fiery Tamil Nadu delicacy: chicken braised in freshly roasted black pepper, kalpasi (stone flower), star anise...</p>
+            <div class="dish-info"><span class="cal">450 kcal</span><span class="spice">Hot</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;410</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'chettinadchicken',-1)">&#8722;</button>
+                <span id="qty-chettinadchicken">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'chettinadchicken',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'chettinadchicken','Chettinad Spicy Chicken Curry',410)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="fish">
+          <div class="dish-img-wrap" onclick="openModal('fish')">
+            
+            <img src="images/fish-curry.jpg" alt="Kerala Malabar Fish Curry"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🐟</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Kerala Malabar Fish Curry</h3>
+              <span class="badge nonveg">NON-VEG</span>
+            </div>
+            <p class="dish-desc">Fresh kingfish steaks cooked in earthen clay pots with thick coconut milk, tangy Kodampuli (Malabar kokum), sh...</p>
             <div class="dish-info"><span class="cal">410 kcal</span><span class="spice">Hot</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;420</span>
@@ -912,33 +591,7 @@
                 <span id="qty-fish">1</span>
                 <button class="qty-btn" onclick="changeQty(event,'fish',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'fish','Kerala Fish Curry',420)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="cbiriyani">
-          <div class="dish-img-wrap" onclick="openModal('cbiriyani')">
-            
-            <img src="images/chicken-biryani.jpg" alt="Hyderabadi Chicken Biryani"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127859;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Hyderabadi Chicken Biryani</h3>
-              <span class="badge nonveg">NON-VEG</span>
-            </div>
-            <p class="dish-desc">Slow dum-cooked biryani with bone-in chicken, kewra water and caramelised onions....</p>
-            <div class="dish-info"><span class="cal">680 kcal</span><span class="spice">Medium</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;380</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'cbiriyani',-1)">&#8722;</button>
-                <span id="qty-cbiriyani">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'cbiriyani',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'cbiriyani','Hyderabadi Chicken Biryani',380)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'fish','Kerala Malabar Fish Curry',420)">+ Add</button>
             </div>
           </div>
         </div>
@@ -947,7 +600,7 @@
             
             <img src="images/prawn-masala.jpg" alt="Goan Prawn Masala"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129424;</div>
+            <div class="img-fallback">🦐</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
@@ -955,7 +608,7 @@
               <h3>Goan Prawn Masala</h3>
               <span class="badge nonveg">NON-VEG</span>
             </div>
-            <p class="dish-desc">Jumbo prawns in fiery Goan red masala with kokum, coconut vinegar and coastal spice blend....</p>
+            <p class="dish-desc">Jumbo tiger prawns simmered in vibrant Goan peri-peri spiced red gravy with coconut vinegar, garlic, and fresh...</p>
             <div class="dish-info"><span class="cal">390 kcal</span><span class="spice">Hot</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;520</span>
@@ -968,12 +621,64 @@
             </div>
           </div>
         </div>
+        <div class="dish-card fade-in" data-id="andhrachicken">
+          <div class="dish-img-wrap" onclick="openModal('andhrachicken')">
+            <span class="new-tag">New</span>
+            <img src="images/andhra-chicken-fry.jpg" alt="Andhra Kodi Vepudu (Spicy Chicken Fry)"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🍗</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Andhra Kodi Vepudu (Spicy Chicken Fry)</h3>
+              <span class="badge nonveg">NON-VEG</span>
+            </div>
+            <p class="dish-desc">Dry-roasted spicy Andhra chicken tossed on high flame with Guntur red chillies, crushed black pepper, fresh cu...</p>
+            <div class="dish-info"><span class="cal">430 kcal</span><span class="spice">Hot</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;390</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'andhrachicken',-1)">&#8722;</button>
+                <span id="qty-andhrachicken">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'andhrachicken',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'andhrachicken','Andhra Kodi Vepudu (Spicy Chicken Fry)',390)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="laalmaas">
+          <div class="dish-img-wrap" onclick="openModal('laalmaas')">
+            <span class="new-tag">New</span>
+            <img src="images/laal-maas.jpg" alt="Rajasthani Royal Laal Maas"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🥩</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Rajasthani Royal Laal Maas</h3>
+              <span class="badge nonveg">NON-VEG</span>
+            </div>
+            <p class="dish-desc">Heritage warrior dish of Rajasthan: tender goat meat cooked with pungent Mathania red chillies, garlic paste, ...</p>
+            <div class="dish-info"><span class="cal">580 kcal</span><span class="spice">Hot</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;490</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'laalmaas',-1)">&#8722;</button>
+                <span id="qty-laalmaas">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'laalmaas',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'laalmaas','Rajasthani Royal Laal Maas',490)">+ Add</button>
+            </div>
+          </div>
+        </div>
         <div class="dish-card fade-in" data-id="ctikkamasala">
           <div class="dish-img-wrap" onclick="openModal('ctikkamasala')">
-            <div class="new-ribbon">NEW</div>
+            
             <img src="images/chicken-tikka-masala.jpg" alt="Chicken Tikka Masala"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127831;</div>
+            <div class="img-fallback">🍗</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
@@ -981,7 +686,7 @@
               <h3>Chicken Tikka Masala</h3>
               <span class="badge nonveg">NON-VEG</span>
             </div>
-            <p class="dish-desc">Grilled chicken tikka simmered in spiced tomato cream sauce. A global Indian favourite....</p>
+            <p class="dish-desc">Smoky char-grilled chicken tikka basted in spiced tandoori marinade, then tossed into a rich, robust onion-tom...</p>
             <div class="dish-info"><span class="cal">460 kcal</span><span class="spice">Medium</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;400</span>
@@ -996,18 +701,18 @@
         </div>
         <div class="dish-card fade-in" data-id="lambbiriyani">
           <div class="dish-img-wrap" onclick="openModal('lambbiriyani')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/lamb-biryani.jpg" alt="Lamb Biryani"
+            
+            <img src="images/lamb-biryani.jpg" alt="Lucknowi Lamb Dum Biryani"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129385;</div>
+            <div class="img-fallback">🥩</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Lamb Biryani</h3>
+              <h3>Lucknowi Lamb Dum Biryani</h3>
               <span class="badge nonveg">NON-VEG</span>
             </div>
-            <p class="dish-desc">Slow-cooked tender lamb layered with saffron basmati rice. Sealed and cooked in dum....</p>
+            <p class="dish-desc">Royal Awadhi Pakki Biryani: succulent tender lamb cooked in aromatic yakhni stock, layered with perfumed basma...</p>
             <div class="dish-info"><span class="cal">720 kcal</span><span class="spice">Medium</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;460</span>
@@ -1016,209 +721,366 @@
                 <span id="qty-lambbiriyani">1</span>
                 <button class="qty-btn" onclick="changeQty(event,'lambbiriyani',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'lambbiriyani','Lamb Biryani',460)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'lambbiriyani','Lucknowi Lamb Dum Biryani',460)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="chickenkorma">
-          <div class="dish-img-wrap" onclick="openModal('chickenkorma')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/chicken-korma.jpg" alt="Chicken Korma"
+        <div class="dish-card fade-in" data-id="ctikka">
+          <div class="dish-img-wrap" onclick="openModal('ctikka')">
+            
+            <img src="images/chicken-tikka.jpg" alt="Chicken Malai Tikka"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127831;</div>
+            <div class="img-fallback">🍗</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Chicken Korma</h3>
+              <h3>Chicken Malai Tikka</h3>
               <span class="badge nonveg">NON-VEG</span>
             </div>
-            <p class="dish-desc">Chicken braised in fragrant yoghurt-nut sauce with saffron, cardamom and rose water....</p>
-            <div class="dish-info"><span class="cal">520 kcal</span><span class="spice">Mild</span></div>
+            <p class="dish-desc">Tender chicken chunks marinated in heavy cream, hung curd, cashew paste and mild white pepper, grilled on skew...</p>
+            <div class="dish-info"><span class="cal">420 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;380</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'chickenkorma',-1)">&#8722;</button>
-                <span id="qty-chickenkorma">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'chickenkorma',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'ctikka',-1)">&#8722;</button>
+                <span id="qty-ctikka">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'ctikka',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'chickenkorma','Chicken Korma',380)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'ctikka','Chicken Malai Tikka',380)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="muttonkeema">
-          <div class="dish-img-wrap" onclick="openModal('muttonkeema')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/mutton-keema.jpg" alt="Mutton Keema"
+        <div class="dish-card fade-in" data-id="fishamritsari">
+          <div class="dish-img-wrap" onclick="openModal('fishamritsari')">
+            
+            <img src="images/fish-amritsari.jpg" alt="Fish Amritsari Fry"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129385;</div>
+            <div class="img-fallback">🐟</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Mutton Keema</h3>
+              <h3>Fish Amritsari Fry</h3>
               <span class="badge nonveg">NON-VEG</span>
             </div>
-            <p class="dish-desc">Spiced minced mutton cooked with green peas, tomatoes and aromatic masala. Delhi dhaba sty...</p>
-            <div class="dish-info"><span class="cal">480 kcal</span><span class="spice">Hot</span></div>
+            <p class="dish-desc">Fresh boneless fish fillets marinated in carom seeds (ajwain), ginger-garlic, and lemon juice, dipped in gram ...</p>
+            <div class="dish-info"><span class="cal">390 kcal</span><span class="spice">Hot</span></div>
             <div class="dish-footer">
-              <span class="price">&#8377;420</span>
+              <span class="price">&#8377;360</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'muttonkeema',-1)">&#8722;</button>
-                <span id="qty-muttonkeema">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'muttonkeema',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'fishamritsari',-1)">&#8722;</button>
+                <span id="qty-fishamritsari">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'fishamritsari',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'muttonkeema','Mutton Keema',420)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="prawnbiriyani">
-          <div class="dish-img-wrap" onclick="openModal('prawnbiriyani')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/prawn-biryani.jpg" alt="Prawn Biryani"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129424;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Prawn Biryani</h3>
-              <span class="badge nonveg">NON-VEG</span>
-            </div>
-            <p class="dish-desc">Coastal Goan-style biryani with jumbo prawns, coconut rice and aromatic spices....</p>
-            <div class="dish-info"><span class="cal">620 kcal</span><span class="spice">Hot</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;480</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'prawnbiriyani',-1)">&#8722;</button>
-                <span id="qty-prawnbiriyani">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'prawnbiriyani',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'prawnbiriyani','Prawn Biryani',480)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'fishamritsari','Fish Amritsari Fry',360)">+ Add</button>
             </div>
           </div>
         </div>
     </div></div>
-
-    <div class="tab-pane " id="desserts"><div class="menu-grid">
-        <div class="dish-card fade-in" data-id="gulab">
-          <div class="dish-img-wrap" onclick="openModal('gulab')">
+    <div class="tab-pane " id="snacks"><div class="menu-grid">
+        <div class="dish-card fade-in" data-id="samosa">
+          <div class="dish-img-wrap" onclick="openModal('samosa')">
             
-            <img src="images/gulab-jamun.jpg" alt="Gulab Jamun"
+            <img src="images/samosa.jpg" alt="Samosa Chaat"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129361;</div>
+            <div class="img-fallback">🥟</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Gulab Jamun</h3>
+              <h3>Samosa Chaat</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Soft khoya dumplings soaked in saffron-rose water sugar syrup. India's most cherished swee...</p>
-            <div class="dish-info"><span class="cal">320 kcal</span><span class="spice">None</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;120</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'gulab',-1)">&#8722;</button>
-                <span id="qty-gulab">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'gulab',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'gulab','Gulab Jamun',120)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="rasmalai">
-          <div class="dish-img-wrap" onclick="openModal('rasmalai')">
-            
-            <img src="images/rasmalai.jpg" alt="Rasmalai"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129368;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Rasmalai</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Soft cottage cheese patties soaked in thickened saffron milk with pistachios and cardamom....</p>
-            <div class="dish-info"><span class="cal">280 kcal</span><span class="spice">None</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;160</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'rasmalai',-1)">&#8722;</button>
-                <span id="qty-rasmalai">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'rasmalai',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'rasmalai','Rasmalai',160)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="kulfi">
-          <div class="dish-img-wrap" onclick="openModal('kulfi')">
-            
-            <img src="images/kulfi-falooda.jpg" alt="Kulfi Falooda"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127846;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Kulfi Falooda</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Pistachio kulfi over rose falooda noodles, basil seeds and cold milk. Classic street desse...</p>
-            <div class="dish-info"><span class="cal">350 kcal</span><span class="spice">None</span></div>
+            <p class="dish-desc">Crispy golden samosas crushed and topped with spiced chole, sweet tamarind, tangy mint chutneys, chilled curd ...</p>
+            <div class="dish-info"><span class="cal">310 kcal</span><span class="spice">Medium</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;180</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'kulfi',-1)">&#8722;</button>
-                <span id="qty-kulfi">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'kulfi',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'samosa',-1)">&#8722;</button>
+                <span id="qty-samosa">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'samosa',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'kulfi','Kulfi Falooda',180)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'samosa','Samosa Chaat',180)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="halwa">
-          <div class="dish-img-wrap" onclick="openModal('halwa')">
-            
-            <img src="images/gajar-halwa.jpg" alt="Gajar Ka Halwa"
+        <div class="dish-card fade-in" data-id="panipuri">
+          <div class="dish-img-wrap" onclick="openModal('panipuri')">
+            <span class="new-tag">New</span>
+            <img src="images/pani-puri.jpg" alt="Pani Puri / Golgappe (8 pcs)"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129380;</div>
+            <div class="img-fallback">🥟</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Gajar Ka Halwa</h3>
+              <h3>Pani Puri / Golgappe (8 pcs)</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Slow-cooked grated carrots in milk, sugar, ghee and cardamom. Topped with dry fruits....</p>
-            <div class="dish-info"><span class="cal">310 kcal</span><span class="spice">None</span></div>
+            <p class="dish-desc">Crispy hollow semolina puris filled with spiced potato-chickpea mix, tangy hing-jeera water, and sweet dates-t...</p>
+            <div class="dish-info"><span class="cal">180 kcal</span><span class="spice">Hot</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;140</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'halwa',-1)">&#8722;</button>
-                <span id="qty-halwa">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'halwa',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'panipuri',-1)">&#8722;</button>
+                <span id="qty-panipuri">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'panipuri',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'halwa','Gajar Ka Halwa',140)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'panipuri','Pani Puri / Golgappe (8 pcs)',140)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="lassi">
-          <div class="dish-img-wrap" onclick="openModal('lassi')">
-            
-            <img src="images/mango-lassi.jpg" alt="Mango Lassi"
+        <div class="dish-card fade-in" data-id="pavbhaji">
+          <div class="dish-img-wrap" onclick="openModal('pavbhaji')">
+            <span class="new-tag">New</span>
+            <img src="images/pav-bhaji.jpg" alt="Amul Butter Pav Bhaji"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129389;</div>
+            <div class="img-fallback">🍛</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Mango Lassi</h3>
+              <h3>Amul Butter Pav Bhaji</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Thick Alphonso mango blended with creamy yoghurt, cardamom and a hint of saffron....</p>
+            <p class="dish-desc">Spiced mashed vegetable curry slow-simmered on a giant tawa with secret Mumbai spices, topped with generous Am...</p>
+            <div class="dish-info"><span class="cal">450 kcal</span><span class="spice">Medium</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;220</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'pavbhaji',-1)">&#8722;</button>
+                <span id="qty-pavbhaji">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'pavbhaji',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'pavbhaji','Amul Butter Pav Bhaji',220)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="vadapav">
+          <div class="dish-img-wrap" onclick="openModal('vadapav')">
+            <span class="new-tag">New</span>
+            <img src="images/vada-pav.jpg" alt="Mumbai Vada Pav (2 pcs)"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🍔</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Mumbai Vada Pav (2 pcs)</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Iconic spiced potato fritter coated in golden gram flour, tucked inside soft pav with spicy garlic dry chutney...</p>
+            <div class="dish-info"><span class="cal">320 kcal</span><span class="spice">Hot</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;120</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'vadapav',-1)">&#8722;</button>
+                <span id="qty-vadapav">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'vadapav',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'vadapav','Mumbai Vada Pav (2 pcs)',120)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="dahipuri">
+          <div class="dish-img-wrap" onclick="openModal('dahipuri')">
+            
+            <img src="images/dahi-puri.jpg" alt="Dahi Puri Supreme"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🥣</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Dahi Puri Supreme</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Crispy puris stuffed with boiled potato cubes and moong sprouts, drenched in sweet whipped yoghurt, tamarind g...</p>
+            <div class="dish-info"><span class="cal">240 kcal</span><span class="spice">Mild</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;160</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'dahipuri',-1)">&#8722;</button>
+                <span id="qty-dahipuri">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'dahipuri',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'dahipuri','Dahi Puri Supreme',160)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="bhelpuri">
+          <div class="dish-img-wrap" onclick="openModal('bhelpuri')">
+            <span class="new-tag">New</span>
+            <img src="images/bhel-puri.jpg" alt="Chowpatty Bhel Puri"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🥗</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Chowpatty Bhel Puri</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Light puffed rice tossed with roasted peanuts, crushed papdi, diced onions, tomatoes, raw mango, fresh coriand...</p>
+            <div class="dish-info"><span class="cal">190 kcal</span><span class="spice">Medium</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;130</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'bhelpuri',-1)">&#8722;</button>
+                <span id="qty-bhelpuri">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'bhelpuri',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'bhelpuri','Chowpatty Bhel Puri',130)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="onionpakoda">
+          <div class="dish-img-wrap" onclick="openModal('onionpakoda')">
+            <span class="new-tag">New</span>
+            <img src="images/onion-pakoda.jpg" alt="Crispy Kanda / Onion Pakoda"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🧅</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Crispy Kanda / Onion Pakoda</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Thinly sliced red onions tossed with ajwain, green chillies, fresh coriander and besan, deep-fried extra crunc...</p>
+            <div class="dish-info"><span class="cal">280 kcal</span><span class="spice">Medium</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;150</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'onionpakoda',-1)">&#8722;</button>
+                <span id="qty-onionpakoda">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'onionpakoda',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'onionpakoda','Crispy Kanda / Onion Pakoda',150)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="mirchibajji">
+          <div class="dish-img-wrap" onclick="openModal('mirchibajji')">
+            <span class="new-tag">New</span>
+            <img src="images/mirchi-bajji.jpg" alt="Andhra Mirchi Bajji (4 pcs)"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🌶️</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Andhra Mirchi Bajji (4 pcs)</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Large Bhavnagri green chillies stuffed with tangy ajwain-tamarind paste, dipped in spiced chickpea batter, fri...</p>
+            <div class="dish-info"><span class="cal">260 kcal</span><span class="spice">Hot</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;160</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'mirchibajji',-1)">&#8722;</button>
+                <span id="qty-mirchibajji">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'mirchibajji',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'mirchibajji','Andhra Mirchi Bajji (4 pcs)',160)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="paneerpakoda">
+          <div class="dish-img-wrap" onclick="openModal('paneerpakoda')">
+            <span class="new-tag">New</span>
+            <img src="images/paneer-pakoda.jpg" alt="Amritsari Paneer Pakoda"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🧀</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Amritsari Paneer Pakoda</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Thick slices of malai paneer sandwiched with tangy mint-chutney, dipped in spiced ajwain-besan batter, and fri...</p>
+            <div class="dish-info"><span class="cal">380 kcal</span><span class="spice">Mild</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;240</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'paneerpakoda',-1)">&#8722;</button>
+                <span id="qty-paneerpakoda">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'paneerpakoda',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'paneerpakoda','Amritsari Paneer Pakoda',240)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="harabharakabab">
+          <div class="dish-img-wrap" onclick="openModal('harabharakabab')">
+            
+            <img src="images/hara-bhara-kabab.jpg" alt="Hara Bhara Kabab"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🥬</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Hara Bhara Kabab</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Vibrant emerald patties made with spinach, green peas, mashed potatoes and cottage cheese, scented with cardam...</p>
+            <div class="dish-info"><span class="cal">230 kcal</span><span class="spice">Mild</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;260</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'harabharakabab',-1)">&#8722;</button>
+                <span id="qty-harabharakabab">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'harabharakabab',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'harabharakabab','Hara Bhara Kabab',260)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="alootikki">
+          <div class="dish-img-wrap" onclick="openModal('alootikki')">
+            
+            <img src="images/aloo-tikki.jpg" alt="Crispy Aloo Tikki Chaat"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🥔</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Crispy Aloo Tikki Chaat</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Golden fried spiced potato patties topped with warm kabuli chana, sweet tamarind chutney, green mint sauce, wh...</p>
+            <div class="dish-info"><span class="cal">290 kcal</span><span class="spice">Medium</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;160</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'alootikki',-1)">&#8722;</button>
+                <span id="qty-alootikki">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'alootikki',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'alootikki','Crispy Aloo Tikki Chaat',160)">+ Add</button>
+            </div>
+          </div>
+        </div>
+    </div></div>
+    <div class="tab-pane " id="drinks"><div class="menu-grid">
+        <div class="dish-card fade-in" data-id="lassi">
+          <div class="dish-img-wrap" onclick="openModal('lassi')">
+            
+            <img src="images/mango-lassi.jpg" alt="Royal Mango Lassi"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🥭</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Royal Mango Lassi</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Thick chilled sweet yoghurt blended with real Ratnagiri Alphonso mango pulp, green cardamom, and garnished wit...</p>
             <div class="dish-info"><span class="cal">240 kcal</span><span class="spice">None</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;120</span>
@@ -1227,76 +1089,50 @@
                 <span id="qty-lassi">1</span>
                 <button class="qty-btn" onclick="changeQty(event,'lassi',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'lassi','Mango Lassi',120)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'lassi','Royal Mango Lassi',120)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="kheer">
-          <div class="dish-img-wrap" onclick="openModal('kheer')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/rice-kheer.jpg" alt="Rice Kheer"
+        <div class="dish-card fade-in" data-id="filtercoffee">
+          <div class="dish-img-wrap" onclick="openModal('filtercoffee')">
+            <span class="new-tag">New</span>
+            <img src="images/filter-coffee.jpg" alt="Madras Degree Filter Coffee"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127860;</div>
+            <div class="img-fallback">☕</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Rice Kheer</h3>
+              <h3>Madras Degree Filter Coffee</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Creamy slow-cooked rice pudding with saffron, cardamom, almonds and silver vark....</p>
-            <div class="dish-info"><span class="cal">280 kcal</span><span class="spice">None</span></div>
+            <p class="dish-desc">Authentic South Indian decoction brewed with fresh dark roast chicory coffee beans and foamy boiled full-fat m...</p>
+            <div class="dish-info"><span class="cal">110 kcal</span><span class="spice">None</span></div>
             <div class="dish-footer">
-              <span class="price">&#8377;110</span>
+              <span class="price">&#8377;80</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'kheer',-1)">&#8722;</button>
-                <span id="qty-kheer">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'kheer',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'filtercoffee',-1)">&#8722;</button>
+                <span id="qty-filtercoffee">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'filtercoffee',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'kheer','Rice Kheer',110)">+ Add</button>
-            </div>
-          </div>
-        </div>
-        <div class="dish-card fade-in" data-id="jalebi">
-          <div class="dish-img-wrap" onclick="openModal('jalebi')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/jalebi-rabri.jpg" alt="Jalebi with Rabri"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127844;</div>
-            <div class="img-tap">Tap for Ingredients &#128269;</div>
-          </div>
-          <div class="dish-body">
-            <div class="dish-top">
-              <h3>Jalebi with Rabri</h3>
-              <span class="badge veg">VEG</span>
-            </div>
-            <p class="dish-desc">Crispy fermented spiral jalebis dunked in sugar syrup, served with thick cold rabri....</p>
-            <div class="dish-info"><span class="cal">340 kcal</span><span class="spice">None</span></div>
-            <div class="dish-footer">
-              <span class="price">&#8377;100</span>
-              <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'jalebi',-1)">&#8722;</button>
-                <span id="qty-jalebi">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'jalebi',1)">+</button>
-              </div>
-              <button class="add-btn" onclick="addToCart(event,'jalebi','Jalebi with Rabri',100)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'filtercoffee','Madras Degree Filter Coffee',80)">+ Add</button>
             </div>
           </div>
         </div>
         <div class="dish-card fade-in" data-id="chai">
           <div class="dish-img-wrap" onclick="openModal('chai')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/masala-chai.jpg" alt="Masala Chai"
+            
+            <img src="images/masala-chai.jpg" alt="Kadak Masala Chai"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127861;</div>
+            <div class="img-fallback">☕</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Masala Chai</h3>
+              <h3>Kadak Masala Chai</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Aromatic spiced tea brewed with ginger, cardamom, cinnamon and strong Assam tea leaves....</p>
+            <p class="dish-desc">Strong Assam tea brewed with crushed ginger, green cardamom, cinnamon, cloves, black pepper, and fresh whole m...</p>
             <div class="dish-info"><span class="cal">80 kcal</span><span class="spice">None</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;60</span>
@@ -1305,59 +1141,163 @@
                 <span id="qty-chai">1</span>
                 <button class="qty-btn" onclick="changeQty(event,'chai',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'chai','Masala Chai',60)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'chai','Kadak Masala Chai',60)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="sharbat">
-          <div class="dish-img-wrap" onclick="openModal('sharbat')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/rose-sharbat.jpg" alt="Rose Sharbat"
+        <div class="dish-card fade-in" data-id="sweetlassi">
+          <div class="dish-img-wrap" onclick="openModal('sweetlassi')">
+            <span class="new-tag">New</span>
+            <img src="images/sweet-lassi.jpg" alt="Punjabi Malai Sweet Lassi"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#127861;</div>
+            <div class="img-fallback">🥛</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Rose Sharbat</h3>
+              <h3>Punjabi Malai Sweet Lassi</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Chilled Rooh Afza rose syrup drink with basil seeds, lemon and cold water. Refreshing....</p>
+            <p class="dish-desc">Hand-churned creamy thick yoghurt drink flavored with fragrant rose water and cardamom, topped with thick clot...</p>
+            <div class="dish-info"><span class="cal">260 kcal</span><span class="spice">None</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;110</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'sweetlassi',-1)">&#8722;</button>
+                <span id="qty-sweetlassi">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'sweetlassi',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'sweetlassi','Punjabi Malai Sweet Lassi',110)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="rose_sharbat">
+          <div class="dish-img-wrap" onclick="openModal('rose_sharbat')">
+            
+            <img src="images/rose-sharbat.jpg" alt="Old Delhi Rose Sharbat with Sabja"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🌹</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Old Delhi Rose Sharbat with Sabja</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Chilled traditional Rooh Afza rose cordial infused with soaked basil seeds (sabja), a squeeze of fresh lime, a...</p>
             <div class="dish-info"><span class="cal">120 kcal</span><span class="spice">None</span></div>
             <div class="dish-footer">
               <span class="price">&#8377;90</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'sharbat',-1)">&#8722;</button>
-                <span id="qty-sharbat">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'sharbat',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'rose_sharbat',-1)">&#8722;</button>
+                <span id="qty-rose_sharbat">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'rose_sharbat',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'sharbat','Rose Sharbat',90)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'rose_sharbat','Old Delhi Rose Sharbat with Sabja',90)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="dish-card fade-in" data-id="thandai">
-          <div class="dish-img-wrap" onclick="openModal('thandai')">
-            <div class="new-ribbon">NEW</div>
-            <img src="images/badam-thandai.jpg" alt="Badam Thandai"
+        <div class="dish-card fade-in" data-id="masala_chaas">
+          <div class="dish-img-wrap" onclick="openModal('masala_chaas')">
+            <span class="new-tag">New</span>
+            <img src="images/masala-chaas.jpg" alt="Masala Buttermilk (Chaas)"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-            <div class="img-fallback">&#129379;</div>
+            <div class="img-fallback">🥛</div>
             <div class="img-tap">Tap for Ingredients &#128269;</div>
           </div>
           <div class="dish-body">
             <div class="dish-top">
-              <h3>Badam Thandai</h3>
+              <h3>Masala Buttermilk (Chaas)</h3>
               <span class="badge veg">VEG</span>
             </div>
-            <p class="dish-desc">Chilled almond milk drink with saffron, cardamom, fennel and rose petals. Holi special....</p>
-            <div class="dish-info"><span class="cal">220 kcal</span><span class="spice">None</span></div>
+            <p class="dish-desc">Refreshing chilled buttermilk churned with roasted cumin powder, black salt, grated ginger, green chillies, fr...</p>
+            <div class="dish-info"><span class="cal">65 kcal</span><span class="spice">Mild</span></div>
             <div class="dish-footer">
-              <span class="price">&#8377;130</span>
+              <span class="price">&#8377;70</span>
               <div class="qty-ctrl">
-                <button class="qty-btn" onclick="changeQty(event,'thandai',-1)">&#8722;</button>
-                <span id="qty-thandai">1</span>
-                <button class="qty-btn" onclick="changeQty(event,'thandai',1)">+</button>
+                <button class="qty-btn" onclick="changeQty(event,'masala_chaas',-1)">&#8722;</button>
+                <span id="qty-masala_chaas">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'masala_chaas',1)">+</button>
               </div>
-              <button class="add-btn" onclick="addToCart(event,'thandai','Badam Thandai',130)">+ Add</button>
+              <button class="add-btn" onclick="addToCart(event,'masala_chaas','Masala Buttermilk (Chaas)',70)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="gulab">
+          <div class="dish-img-wrap" onclick="openModal('gulab')">
+            
+            <img src="images/gulab-jamun.jpg" alt="Royal Shahi Gulab Jamun (2 pcs)"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🍯</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Royal Shahi Gulab Jamun (2 pcs)</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Golden fried khoya dumplings infused with saffron and pistachios, soaked warm in rosewater-cardamom sugar syru...</p>
+            <div class="dish-info"><span class="cal">320 kcal</span><span class="spice">None</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;120</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'gulab',-1)">&#8722;</button>
+                <span id="qty-gulab">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'gulab',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'gulab','Royal Shahi Gulab Jamun (2 pcs)',120)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="rasmalai">
+          <div class="dish-img-wrap" onclick="openModal('rasmalai')">
+            
+            <img src="images/rasmalai.jpg" alt="Kesar Pista Rasmalai (2 pcs)"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🥛</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Kesar Pista Rasmalai (2 pcs)</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Spongy cottage cheese patties poached in sugar syrup and steeped in chilled, thickened saffron milk topped wit...</p>
+            <div class="dish-info"><span class="cal">280 kcal</span><span class="spice">None</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;160</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'rasmalai',-1)">&#8722;</button>
+                <span id="qty-rasmalai">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'rasmalai',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'rasmalai','Kesar Pista Rasmalai (2 pcs)',160)">+ Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card fade-in" data-id="kulfi">
+          <div class="dish-img-wrap" onclick="openModal('kulfi')">
+            
+            <img src="images/kulfi-falooda.jpg" alt="Old Delhi Kulfi Falooda"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="img-fallback">🍨</div>
+            <div class="img-tap">Tap for Ingredients &#128269;</div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3>Old Delhi Kulfi Falooda</h3>
+              <span class="badge veg">VEG</span>
+            </div>
+            <p class="dish-desc">Dense, traditional malai kulfi sliced and served over chilled cornstarch falooda vermicelli, rose syrup, and b...</p>
+            <div class="dish-info"><span class="cal">350 kcal</span><span class="spice">None</span></div>
+            <div class="dish-footer">
+              <span class="price">&#8377;180</span>
+              <div class="qty-ctrl">
+                <button class="qty-btn" onclick="changeQty(event,'kulfi',-1)">&#8722;</button>
+                <span id="qty-kulfi">1</span>
+                <button class="qty-btn" onclick="changeQty(event,'kulfi',1)">+</button>
+              </div>
+              <button class="add-btn" onclick="addToCart(event,'kulfi','Old Delhi Kulfi Falooda',180)">+ Add</button>
             </div>
           </div>
         </div>
@@ -1366,98 +1306,87 @@
   </div>
 </section>
 
+<!-- Cart Sidebar -->
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 <div class="cart-sidebar" id="cartSidebar">
-  <div class="cart-hd">
-    <h3>&#128722; Your Order</h3>
-    <button onclick="toggleCart()">&times;</button>
+  <div class="cart-hdr">
+    <h3>&#128722; Your Food Order</h3>
+    <button class="cart-close" onclick="toggleCart()">&times;</button>
   </div>
-  <div class="cart-items" id="cartItems">
-    <p class="cart-empty">Your cart is empty.<br/>Select delicious dishes from our menu to order!</p>
-  </div>
+  <div class="cart-items" id="cartItems"></div>
   <div class="cart-ftr" id="cartFtr" style="display:none">
-    <div class="cart-row"><span>Subtotal</span><span id="cartSub">&#8377;0</span></div>
-    <div class="cart-row"><span>GST (5%)</span><span id="cartGst">&#8377;0</span></div>
-    <div class="cart-row cart-total"><span>Total</span><span id="cartTot">&#8377;0</span></div>
-    <button class="btn-pay" onclick="initiatePayment()">&#128666; Checkout &amp; Pay Now</button>
-    <button class="btn btn-ghost w100 mt8" style="text-align:center" onclick="clearCart()">&#128465; Clear Cart</button>
+    <div class="cart-total-row"><span>Food Subtotal:</span><span id="cartSub">&#8377;0</span></div>
+    <div class="cart-total-row"><span>GST (5%):</span><span id="cartGst">&#8377;0</span></div>
+    <div class="cart-total-row grand"><span>Total Payable:</span><span id="cartTot">&#8377;0</span></div>
+    <button class="btn btn-saffron w100" onclick="initiatePayment()" style="margin-top:14px;padding:14px;font-size:0.88rem;font-weight:700;letter-spacing:1.5px">
+      &#128274; Checkout &amp; Pay Now &rarr;
+    </button>
   </div>
 </div>
 
+<!-- Ingredients & Nutrition Modal -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
-  <div class="modal-box" onclick="event.stopPropagation()">
+  <div class="modal-card" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal()">&times;</button>
-    <div class="modal-img-wrap">
-      <img id="modalImg" src="" alt=""/>
-      <div class="modal-img-fallback" id="modalImgFallback"></div>
+    <div class="modal-hero">
+      <img id="modalImg" src="" alt="Dish"/>
+      <div id="modalImgFallback" class="img-fallback" style="display:none;width:100%;height:100%;font-size:4rem"></div>
+      <span class="modal-badge" id="modalBadge">VEG</span>
+      <span class="modal-region" id="modalRegion"></span>
     </div>
-    <div class="modal-body">
-      <div class="modal-badges"><span class="modal-badge" id="modalBadge"></span><span class="modal-region" id="modalRegion"></span></div>
-      <h2 id="modalName"></h2>
-      <p id="modalDesc"></p>
-      <div class="modal-section"><h4>&#127807; Ingredients</h4><div class="modal-tags" id="modalIngredients"></div></div>
-      <div class="modal-section"><h4>&#128200; Nutrition per serving</h4>
-        <div class="modal-nutrition">
-          <div class="nut"><span id="mnCal">0</span><label>Calories</label></div>
-          <div class="nut"><span id="mnProtein">0g</span><label>Protein</label></div>
-          <div class="nut"><span id="mnCarbs">0g</span><label>Carbs</label></div>
-          <div class="nut"><span id="mnFat">0g</span><label>Fat</label></div>
-        </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalName"></h2>
+        <span class="modal-price" id="modalPrice"></span>
       </div>
-      <div class="modal-ftr">
-        <div><div class="modal-price" id="modalPrice"></div><div class="modal-spice" id="modalSpice"></div></div>
-        <button class="add-btn" id="modalAddBtn">+ Add to Cart</button>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-section-title">Fresh Ingredients &amp; Spices</div>
+      <div class="ingredients-list" id="modalIngredients"></div>
+      <div class="modal-section-title">Nutritional Information (Per Serving)</div>
+      <div class="nutrition-grid">
+        <div class="nutri-item"><div class="val" id="mnCal">-</div><div class="lbl">Calories</div></div>
+        <div class="nutri-item"><div class="val" id="mnProtein">-</div><div class="lbl">Protein</div></div>
+        <div class="nutri-item"><div class="val" id="mnCarbs">-</div><div class="lbl">Carbs</div></div>
+        <div class="nutri-item"><div class="val" id="mnFat">-</div><div class="lbl">Fat</div></div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px">
+        <span id="modalSpice" style="font-size:0.8rem;color:var(--gold);font-weight:600"></span>
+        <button id="modalAddBtn" class="btn btn-saffron" style="padding:10px 24px;font-size:0.82rem;font-weight:700">+ Add to Cart</button>
       </div>
     </div>
   </div>
 </div>
 
-<footer class="footer" id="contact-footer">
-  <div class="footer-top"></div>
-  <div class="container footer-grid">
-    <div class="ft-brand">
-      <a href="index.html" class="logo"><span class="om">&#2384;</span><span>Spice Route</span></a>
-      <p>Authentic flavours of India, freshly cooked with premium ingredients, delivered hot to your doorstep.</p>
-      <div class="socials">
-        <a href="#" aria-label="Instagram">&#128247;</a>
-        <a href="#" aria-label="Facebook">&#128218;</a>
-        <a href="#" aria-label="YouTube">&#127909;</a>
-        <a href="#" aria-label="Twitter">&#128038;</a>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:12px"><span class="om">&#2384;</span><span>Spice Route</span></div>
+        <p style="color:var(--muted);font-size:0.82rem;line-height:1.7">Authentic Indian culinary heritage crafted with whole spices and delivered fresh to your doorstep.</p>
+      </div>
+      <div class="footer-col">
+        <h4 style="color:var(--gold);margin-bottom:12px;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase">Quick Links</h4>
+        <ul style="list-style:none;padding:0;font-size:0.82rem;line-height:2">
+          <li><a href="index.html" style="color:var(--muted);text-decoration:none">Home</a></li>
+          <li><a href="menu.html" style="color:var(--gold);text-decoration:none">Food Menu</a></li>
+          <li><a href="about.html" style="color:var(--muted);text-decoration:none">Our Heritage</a></li>
+          <li><a href="contact.html" style="color:var(--muted);text-decoration:none">Contact Us</a></li>
+          <li><a href="admin.html" style="color:var(--muted);text-decoration:none">Kitchen Admin</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 style="color:var(--gold);margin-bottom:12px;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase">Kitchen Hours</h4>
+        <p style="color:var(--muted);font-size:0.82rem;line-height:1.8">Monday &ndash; Sunday<br/><b style="color:#fff">11:00 AM &ndash; 11:30 PM</b><br/>Express Delivery in 30&ndash;45 Mins</p>
       </div>
     </div>
-    <div class="ft-col"><h4>Quick Links</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li><li><a href="menu.html">Explore Menu</a></li>
-        <li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Support</a></li>
-      </ul>
-    </div>
-    <div class="ft-col"><h4>Delivery Timings</h4>
-      <ul class="hours">
-        <li><span>Mon &ndash; Fri</span><span>11AM&ndash;11PM</span></li>
-        <li><span>Sat &ndash; Sun</span><span>10AM&ndash;11PM</span></li>
-        <li><span>Delivery</span><span>30&ndash;45 Mins</span></li>
-      </ul>
-    </div>
-    <div class="ft-col"><h4>Contact &amp; Orders</h4>
-      <ul>
-        <li>&#128222; +91 98765 43210</li>
-        <li>&#9993; orders@spiceroute.in</li>
-        <li>&#128205; Chandni Chowk, Old Delhi</li>
-        <li>&#128666; Superfast Doorstep Delivery</li>
-      </ul>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;text-align:center;color:var(--muted);font-size:0.75rem">
+      &copy; 2026 Spice Route Restaurant. All rights reserved. &bull; FSSAI Lic: 10019011005678
     </div>
   </div>
-  <div class="ft-bottom"><p>&copy; 2026 Spice Route Online Indian Food Ordering &mdash; Made with &#10084; &amp; Masala</p></div>
 </footer>
-<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
 
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-  <script src="firebase-config.js"></script>
-  <script src="data.js"></script>
-  <script src="cart.js"></script>
-  <script src="auth.js"></script>
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="data.js"></script>
+<script src="auth.js"></script>
+<script src="cart.js"></script>
 </body>
 </html>

@@ -68,6 +68,37 @@
     <a href="https://console.firebase.google.com/" target="_blank" class="btn btn-ghost" style="padding:8px 16px;font-size:0.72rem">&#128279; Firebase Cloud Console</a>
   </div>
 
+    <!-- PAYMENT GATEWAY & LIVE MODE CONFIGURATION -->
+  <div style="background:#1E1009;border:1px solid rgba(212,175,55,0.25);padding:24px;border-radius:6px;margin-bottom:32px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+      <div>
+        <h3 style="color:var(--gold);font-family:var(--ff-serif);font-size:1.3rem;margin:0 0 4px">&#128179; Payment Gateway &amp; Live Mode Settings</h3>
+        <p style="color:var(--muted);font-size:0.8rem;margin:0">Switch between Test Mode and Real Money (Live Mode) without editing code</p>
+      </div>
+      <span id="gatewayModeBadge" style="background:#4CAF50;color:#fff;padding:4px 12px;border-radius:4px;font-size:0.75rem;font-weight:700">LIVE / ACTIVE</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;margin-bottom:16px">
+      <div>
+        <label style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--saffron);display:block;margin-bottom:6px">Razorpay API Key ID (rzp_live_... or rzp_test_...)</label>
+        <input type="text" id="adminRzpKeyInput" placeholder="Paste your rzp_live_... key here"
+          style="width:100%;background:#231209;border:1px solid rgba(255,255,255,0.15);color:#fff;padding:10px 14px;font-size:0.85rem;border-radius:4px;outline:none"/>
+        <span style="font-size:0.72rem;color:var(--muted);margin-top:4px;display:block">To remove 'Test Mode' badge, paste your Razorpay <b>rzp_live_...</b> key</span>
+      </div>
+
+      <div>
+        <label style="font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--saffron);display:block;margin-bottom:6px">Restaurant Merchant UPI ID (GPay / PhonePe / Paytm / Bank)</label>
+        <input type="text" id="adminUpiInput" placeholder="e.g. yourbusiness@okhdfcbank"
+          style="width:100%;background:#231209;border:1px solid rgba(255,255,255,0.15);color:#fff;padding:10px 14px;font-size:0.85rem;border-radius:4px;outline:none"/>
+        <span style="font-size:0.72rem;color:var(--muted);margin-top:4px;display:block">Where customer UPI / QR code payments are deposited</span>
+      </div>
+    </div>
+
+    <button onclick="savePaymentSettings()" class="btn btn-saffron" style="padding:10px 24px;font-size:0.78rem;font-weight:700">
+      &#10004; Save &amp; Apply Gateway Settings
+    </button>
+  </div>
+
   <div class="stats-row">
     <div class="stat-card">
       <div class="label">Total Orders Placed</div>
@@ -266,25 +297,55 @@ function renderOrders(orders) {
     const docId = o.id || '';
     const cust = o.customer || {};
     const addr = o.deliveryAddress || {};
+    const utr = o.utrNumber || (pId.startsWith('UPI_') ? pId.replace('UPI_', '') : '');
     
     const custName = addr.name || cust.name || 'Customer';
     const custPhone = addr.phone || cust.phone || 'N/A';
-    const addressStr = addr.street ? `${addr.street}, ${addr.city || ''} - ${addr.pincode || ''}${addr.notes ? '<br/><i>Note: ' + addr.notes + '</i>' : ''}` : 'Direct Order';
+    const addressStr = addr.street ? `${addr.street}, ${addr.city || ''} - ${addr.pincode || ''}${addr.notes ? '<br/><i style="color:var(--saffron)">Note: ' + addr.notes + '</i>' : ''}` : 'Direct Order';
+
+    const isPending = (o.status || '').includes('Pending');
+    const badgeColor = isPending ? '#FF9800' : '#4CAF50';
+    const badgeText = isPending ? '⏳ UTR Verification Needed' : '✔ Verified & Cooking';
 
     return `<tr>
-      <td><b>${pId}</b><br/><span style="font-size:0.75rem;color:var(--muted)">${dateStr}</span></td>
+      <td>
+        <b>${pId}</b>
+        ${utr ? `<br/><span style="font-size:0.75rem;color:var(--gold);font-family:monospace">UTR: ${utr}</span>` : ''}
+        <br/><span style="font-size:0.72rem;color:var(--muted)">${dateStr}</span>
+      </td>
       <td><b>${custName}</b><br/><span style="color:var(--gold)">📞 ${custPhone}</span></td>
-      <td style="font-size:0.8rem;max-width:240px">${addressStr}</td>
+      <td style="font-size:0.8rem;max-width:220px">${addressStr}</td>
       <td style="font-size:0.82rem;color:var(--gold)">${itemsSummary}</td>
       <td><b>₹${o.total || 0}</b><br/><span style="font-size:0.72rem;color:var(--muted)">incl. GST</span></td>
-      <td><span class="status-badge status-paid">${o.status || 'Confirmed'}</span></td>
+      <td><span class="status-badge" style="background:${badgeColor};color:#fff;font-size:0.72rem;padding:4px 8px;border-radius:3px">${badgeText}</span></td>
       <td>
-        <div class="btn-group">
-          <button class="del-btn" onclick="removeOrder('${pId}', '${docId}')">🗑️ Remove</button>
+        <div class="btn-group" style="display:flex;gap:4px;flex-direction:column">
+          ${isPending ? `<button onclick="approveOrder('${pId}', '${docId}')" style="background:#4CAF50;color:#fff;border:none;padding:5px 8px;font-size:0.72rem;font-weight:700;cursor:pointer;border-radius:3px">✔ Approve &amp; Dispatch</button>` : ''}
+          <button class="del-btn" onclick="removeOrder('${pId}', '${docId}')" style="font-size:0.7rem;padding:4px 8px">🗑️ Remove</button>
         </div>
       </td>
     </tr>`;
   }).join('');
+}
+
+async function approveOrder(paymentId, docId) {
+  loadLocalData();
+  localOrders = localOrders.map(o => {
+    if (o.paymentId === paymentId || o.id === paymentId) {
+      o.status = 'Approved & In Preparation';
+    }
+    return o;
+  });
+  localStorage.setItem('spiceRoute_db_orders', JSON.stringify(localOrders));
+
+  if (typeof ordersCol !== 'undefined' && ordersCol && (docId || paymentId)) {
+    try {
+      if (docId) await ordersCol.doc(docId).update({ status: 'Approved & In Preparation' });
+    } catch(e) {}
+  }
+
+  alert('Order #' + paymentId + ' approved! Sent to tandoor preparation.');
+  loadFirebaseData();
 }
 
 function renderContacts(cList) {
@@ -308,6 +369,42 @@ function renderContacts(cList) {
 function refreshDashboard() {
   loadFirebaseData();
 }
+
+
+function loadPaymentSettings() {
+  const currentKey = localStorage.getItem('spiceRoute_razorpay_key') || 'rzp_test_TUjGfgBnKBC8pe';
+  const currentUpi = localStorage.getItem('spiceRoute_upi_id') || 'spiceroute.restaurant@okhdfcbank';
+  
+  const keyInput = document.getElementById('adminRzpKeyInput');
+  const upiInput = document.getElementById('adminUpiInput');
+  const badge = document.getElementById('gatewayModeBadge');
+  
+  if (keyInput) keyInput.value = currentKey;
+  if (upiInput) upiInput.value = currentUpi;
+  
+  if (badge) {
+    if (currentKey.startsWith('rzp_live_')) {
+      badge.textContent = '● PRODUCTION LIVE MODE (Real Money)';
+      badge.style.background = '#4CAF50';
+    } else {
+      badge.textContent = '● TEST / SANDBOX MODE';
+      badge.style.background = '#FF9800';
+    }
+  }
+}
+
+function savePaymentSettings() {
+  const k = document.getElementById('adminRzpKeyInput')?.value.trim();
+  const u = document.getElementById('adminUpiInput')?.value.trim();
+  
+  if (k) localStorage.setItem('spiceRoute_razorpay_key', k);
+  if (u) localStorage.setItem('spiceRoute_upi_id', u);
+  
+  alert('Payment Gateway settings saved successfully!');
+  loadPaymentSettings();
+}
+
+document.addEventListener('DOMContentLoaded', loadPaymentSettings);
 
 document.addEventListener('DOMContentLoaded', loadFirebaseData);
 </script>
