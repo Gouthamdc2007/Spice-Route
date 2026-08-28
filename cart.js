@@ -1,15 +1,14 @@
 // ============================================================
-//  cart.js — Secure UPI, Dynamic QR & Food Ordering Engine
-//  - Anti-Fraud Mandatory 12-digit UPI UTR Validation
-//  - Dynamic Scannable UPI QR Code (Auto-calculated exact ₹)
+//  cart.js — Seamless UPI, Dynamic QR & Food Ordering
+//  - Dynamic Scannable UPI QR Code (Auto-amount)
 //  - 1-Tap Mobile App Launchers (GPay, PhonePe, Paytm)
-//  - Two-Stage Kitchen Verification (Pending -> Approved)
-//  - Automated Itemized GST Tax Invoice / Bill PDF Generator
+//  - 1-Click Instant Payment Confirmation
+//  - Customer Payment Success Confirmation Screen
+//  - Automated Itemized GST Tax Invoice / Bill PDF Generator & Viewer
 // ============================================================
 
 // ── UPI & PAYMENT CONFIGURATION ─────────────────────────────
 let RESTAURANT_UPI_ID = localStorage.getItem('spiceRoute_upi_id') || 'gowtham57845@okhdfcbank';
-let RAZORPAY_KEY_ID = localStorage.getItem('spiceRoute_razorpay_key') || 'rzp_test_TUjGfgBnKBC8pe';
 
 function setRestaurantUPI(vpa) {
   if (vpa) {
@@ -196,7 +195,7 @@ function openDeliveryAddressModal(total, gst, sub, user) {
       <div style="text-align:center;margin-bottom:20px">
         <div style="font-size:2rem;color:var(--saffron);margin-bottom:4px">&#128666;</div>
         <h2 style="font-family:var(--ff-serif);color:#fff;font-size:1.5rem;margin:0 0 4px">Doorstep Delivery Address</h2>
-        <p style="color:var(--muted);font-size:0.8rem">Enter your location to open the UPI &amp; Dynamic QR payment screen</p>
+        <p style="color:var(--muted);font-size:0.8rem">Enter your location to proceed to payment</p>
       </div>
 
       <form id="deliveryAddressForm" onsubmit="handleDeliverySubmit(event, ${total}, ${gst}, ${sub})">
@@ -247,7 +246,7 @@ function openDeliveryAddressModal(total, gst, sub, user) {
         </div>
 
         <button type="submit" class="btn btn-saffron w100" style="padding:14px;font-size:0.85rem;font-weight:700;letter-spacing:1.5px;border-radius:4px">
-          &#128247; Proceed to UPI QR &amp; App Payment &rarr;
+          &#128247; Proceed to Payment &rarr;
         </button>
       </form>
     </div>
@@ -270,7 +269,7 @@ function handleDeliverySubmit(e, total, gst, sub) {
   openCompletePaymentPortal(total, gst, sub);
 }
 
-// ── STEP 2: DYNAMIC UPI QR & 1-TAP APP PAYMENT PORTAL ──
+// ── STEP 2: CLEAN DYNAMIC UPI QR & 1-TAP APP PAYMENT PORTAL ──
 function openCompletePaymentPortal(total, gst, sub) {
   let modal = document.getElementById('mainPaymentPortalModal');
   if (!modal) {
@@ -291,16 +290,16 @@ function openCompletePaymentPortal(total, gst, sub) {
       <!-- TOP BANNER -->
       <div style="text-align:center;border-bottom:1px solid rgba(212,175,55,0.25);padding-bottom:12px;margin-bottom:16px">
         <div style="font-size:1.8rem;color:var(--saffron);margin-bottom:2px">&#2384;</div>
-        <h2 style="font-family:var(--ff-serif);color:#fff;font-size:1.4rem;margin:0 0 4px">Dynamic UPI QR &amp; App Payment</h2>
+        <h2 style="font-family:var(--ff-serif);color:#fff;font-size:1.4rem;margin:0 0 4px">Pay with UPI / QR Code</h2>
         <div style="background:rgba(232,98,26,0.14);border:1px solid rgba(232,98,26,0.4);padding:6px 14px;border-radius:6px;display:inline-block;margin-top:4px">
-          <span style="color:var(--muted);font-size:0.78rem">Order #${orderRef} &bull; Amount: </span>
+          <span style="color:var(--muted);font-size:0.78rem">Order #${orderRef} &bull; Total Amount: </span>
           <b style="color:var(--gold);font-size:1.35rem">&#8377;${total}</b>
           <span style="font-size:0.72rem;color:var(--muted)"> (incl. 5% GST)</span>
         </div>
       </div>
 
       <!-- MAIN PAYMENT CONTENT -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;align-items:center;margin-bottom:16px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;align-items:center;margin-bottom:20px">
         
         <!-- QR CODE COLUMN -->
         <div style="text-align:center;background:#231209;border:1px solid rgba(212,175,55,0.3);padding:14px;border-radius:8px">
@@ -359,76 +358,43 @@ function openCompletePaymentPortal(total, gst, sub) {
         </div>
       </div>
 
-      <!-- STRICT ANTI-FRAUD VERIFICATION BOX -->
-      <div style="background:#231209;border:1.5px solid rgba(232,98,26,0.4);padding:16px;border-radius:8px;text-align:center;margin-bottom:10px">
-        <div style="color:var(--gold);font-weight:700;font-size:0.84rem;margin-bottom:4px">&#128274; Security Step: Enter Bank Transaction UTR</div>
-        <p style="color:var(--muted);font-size:0.74rem;margin-bottom:10px">Enter the <b>12-digit UPI Reference / UTR Number</b> from your payment receipt (Google Pay / PhonePe / Paytm):</p>
-        
-        <div style="max-width:340px;margin:0 auto 10px">
-          <input type="text" id="finalUtrInput" placeholder="12-digit UPI Ref / UTR (e.g. 423812345678)" maxlength="12" pattern="[0-9]{12}"
-                 oninput="this.value = this.value.replace(/[^0-9]/g, ''); validateUtrLive(this)"
-                 style="width:100%;background:#180C06;border:1.5px solid rgba(255,255,255,0.25);color:#fff;padding:10px;font-size:0.9rem;border-radius:4px;outline:none;text-align:center;letter-spacing:2px;font-family:monospace"/>
-          <div id="utrHelpMsg" style="font-size:0.7rem;color:var(--muted);margin-top:4px">12 numeric digits required</div>
-        </div>
-
-        <button onclick="finishUpiPayment('${orderRef}', ${total}, ${gst}, ${sub})" class="btn btn-saffron" style="width:100%;padding:13px;font-size:0.88rem;font-weight:700;letter-spacing:1px;border-radius:4px">
-          &#10004; Submit UTR &amp; Place Order (&#8377;${total}) &rarr;
+      <!-- DIRECT 1-CLICK CONFIRMATION & BILL DOWNLOAD -->
+      <div style="text-align:center;margin-bottom:8px">
+        <button onclick="finishUpiPayment('${orderRef}', ${total}, ${gst}, ${sub})" class="btn btn-saffron" style="width:100%;padding:15px;font-size:0.95rem;font-weight:700;letter-spacing:1px;border-radius:4px;box-shadow:0 6px 20px rgba(232,98,26,0.45)">
+          &#10004; Payment Completed &mdash; View / Download Bill (PDF) &rarr;
         </button>
       </div>
 
-      <!-- SECURITY NOTE -->
+      <!-- FOOTER NOTE -->
       <div style="text-align:center;font-size:0.7rem;color:var(--muted)">
-        &#128274; Orders are verified in real-time by kitchen dispatch before food preparation begins.
+        &#128274; Instant Doorstep Delivery &bull; Real-time Kitchen Order Dispatch &bull; Official Tax Invoice
       </div>
     </div>
   `;
   modal.style.display = 'flex';
 }
 
-function validateUtrLive(el) {
-  const msg = document.getElementById('utrHelpMsg');
-  if (el.value.length === 12) {
-    el.style.borderColor = '#4CAF50';
-    if (msg) { msg.textContent = '✔ Valid 12-digit UTR format entered'; msg.style.color = '#4CAF50'; }
-  } else {
-    el.style.borderColor = 'rgba(255,255,255,0.25)';
-    if (msg) { msg.textContent = `${el.value.length}/12 digits entered`; msg.style.color = 'var(--muted)'; }
-  }
-}
-
 function finishUpiPayment(orderRef, total, gst, sub) {
-  const utrInput = document.getElementById('finalUtrInput');
-  const utr = utrInput ? utrInput.value.trim() : '';
-  
-  if (!utr || utr.length !== 12 || !/^\d{12}$/.test(utr)) {
-    showToast('⚠️ Please enter the valid 12-digit UPI UTR number from your payment receipt!');
-    if (utrInput) {
-      utrInput.focus();
-      utrInput.style.borderColor = '#FF5252';
-    }
-    return;
-  }
-
-  const paymentId = 'UPI_' + utr;
+  const paymentId = 'PAY_' + orderRef;
   
   const modal = document.getElementById('mainPaymentPortalModal');
   if (modal) modal.style.display = 'none';
 
-  onPaymentSuccess(paymentId, total, gst, sub, 'Direct UPI (UTR: ' + utr + ')', utr);
+  onPaymentSuccess(paymentId, total, gst, sub, 'UPI Payment');
 }
 
-// ── STEP 3: Real Payment Success & Verification Screen ─────
-function onPaymentSuccess(paymentId, total, gst, sub, method, utr) {
+// ── STEP 3: Payment Success Confirmation Screen ─────────────
+function onPaymentSuccess(paymentId, total, gst, sub, method) {
   const pModal = document.getElementById('mainPaymentPortalModal');
   if (pModal) pModal.style.display = 'none';
 
-  saveOrderToDatabase(paymentId, total, gst, sub, method, utr);
-  showCustomerSuccessScreen(paymentId, total, gst, sub, utr);
+  saveOrderToDatabase(paymentId, total, gst, sub, method);
+  showCustomerSuccessScreen(paymentId, total, gst, sub);
   clearCart();
   toggleCart();
 }
 
-function showCustomerSuccessScreen(paymentId, total, gst, sub, utr) {
+function showCustomerSuccessScreen(paymentId, total, gst, sub) {
   let overlay = document.getElementById('customerSuccessModal');
   if (overlay) overlay.remove();
 
@@ -444,20 +410,20 @@ function showCustomerSuccessScreen(paymentId, total, gst, sub, utr) {
         &#10004;
       </div>
 
-      <h2 style="font-family:var(--ff-serif);color:#fff;font-size:1.7rem;margin:0 0 4px">Order Received &amp; Transmitted!</h2>
-      <p style="color:#4CAF50;font-size:0.85rem;font-weight:600;margin-bottom:18px">&#127859; Kitchen verifying UTR: <b>${utr || paymentId}</b></p>
+      <h2 style="font-family:var(--ff-serif);color:#fff;font-size:1.75rem;margin:0 0 4px">Payment Successful!</h2>
+      <p style="color:#4CAF50;font-size:0.88rem;font-weight:600;margin-bottom:18px">&#127859; Order Placed &amp; Dispatched to Kitchen</p>
 
       <!-- LIVE PROGRESS TRACKER -->
       <div style="background:#231209;border:1px solid rgba(255,255,255,0.08);padding:14px 12px;border-radius:6px;margin-bottom:18px">
         <div style="display:flex;justify-content:space-between;align-items:center;position:relative">
           <div style="text-align:center;flex:1">
             <div style="width:22px;height:22px;background:#4CAF50;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;margin:0 auto 4px;font-weight:700">&#10003;</div>
-            <span style="font-size:0.68rem;color:#4CAF50;font-weight:600">Order Placed</span>
+            <span style="font-size:0.68rem;color:#4CAF50;font-weight:600">Paid &amp; Placed</span>
           </div>
           <div style="height:2px;background:#4CAF50;flex:1;margin-bottom:14px"></div>
           <div style="text-align:center;flex:1">
             <div style="width:22px;height:22px;background:var(--saffron);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;margin:0 auto 4px;font-weight:700">&#127859;</div>
-            <span style="font-size:0.68rem;color:var(--saffron);font-weight:600">Kitchen Prep</span>
+            <span style="font-size:0.68rem;color:var(--saffron);font-weight:600">In Tandoor Prep</span>
           </div>
           <div style="height:2px;background:rgba(255,255,255,0.15);flex:1;margin-bottom:14px"></div>
           <div style="text-align:center;flex:1">
@@ -470,12 +436,12 @@ function showCustomerSuccessScreen(paymentId, total, gst, sub, utr) {
       <!-- TRANSACTION SUMMARY -->
       <div style="background:#231209;border:1px solid rgba(255,255,255,0.08);padding:16px;border-radius:6px;text-align:left;font-size:0.82rem;margin-bottom:18px">
         <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-          <span style="color:var(--muted)">Bank UTR Reference:</span>
-          <b style="color:#4CAF50;font-family:monospace">${utr || paymentId}</b>
+          <span style="color:var(--muted)">Payment Reference ID:</span>
+          <b style="color:#fff;font-family:monospace">${paymentId}</b>
         </div>
         <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-          <span style="color:var(--muted)">Total Amount:</span>
-          <b style="color:var(--gold);font-size:1rem">&#8377;${total} <span style="font-size:0.7rem;color:var(--muted)">(5% GST incl.)</span></b>
+          <span style="color:var(--muted)">Total Amount Paid:</span>
+          <b style="color:var(--gold);font-size:1.05rem">&#8377;${total} <span style="font-size:0.7rem;color:var(--muted)">(5% GST incl.)</span></b>
         </div>
         <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:8px 0"/>
         <div style="color:var(--muted);font-size:0.78rem">
@@ -484,30 +450,30 @@ function showCustomerSuccessScreen(paymentId, total, gst, sub, utr) {
         </div>
       </div>
 
-      <!-- ACTION BUTTONS -->
+      <!-- ACTION BUTTONS: VIEW & DOWNLOAD BILL -->
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <button onclick="downloadBill('${paymentId}', ${total}, ${gst}, ${sub}, '${utr || ''}')" class="btn btn-saffron" style="padding:12px 24px;font-size:0.84rem;font-weight:700;border-radius:4px">
-          &#128196; Download Tax Invoice (PDF)
+        <button onclick="downloadBill('${paymentId}', ${total}, ${gst}, ${sub})" class="btn btn-saffron" style="padding:12px 24px;font-size:0.88rem;font-weight:700;border-radius:4px;box-shadow:0 6px 20px rgba(232,98,26,0.4)">
+          &#128196; View &amp; Download Bill (PDF)
         </button>
         <button onclick="document.getElementById('customerSuccessModal').remove()" class="btn btn-ghost" style="padding:12px 20px;font-size:0.82rem;border-radius:4px">
-          Done
+          Continue Browsing
         </button>
       </div>
     </div>
   `;
   document.body.appendChild(overlay);
 
+  // Automatically open the tax invoice
   setTimeout(() => {
-    downloadBill(paymentId, total, gst, sub, utr);
-  }, 900);
+    downloadBill(paymentId, total, gst, sub);
+  }, 800);
 }
 
-function saveOrderToDatabase(paymentId, total, gst, sub, method, utr) {
+function saveOrderToDatabase(paymentId, total, gst, sub, method) {
   const user = (typeof getCurrentUser === 'function') ? getCurrentUser() : null;
   const orderData = {
     paymentId,
-    utrNumber: utr || '',
-    paymentMethod: method || 'Direct UPI Transfer',
+    paymentMethod: method || 'UPI Payment',
     customer: {
       name: currentDeliveryAddress ? currentDeliveryAddress.name : (user ? user.name : 'Valued Customer'),
       email: user ? (user.email || '') : '',
@@ -518,7 +484,7 @@ function saveOrderToDatabase(paymentId, total, gst, sub, method, utr) {
     subtotal: sub,
     gst,
     total,
-    status: 'Pending Kitchen UTR Verification',
+    status: 'Paid & In Preparation',
     createdAt: new Date().toISOString()
   };
 
@@ -536,14 +502,13 @@ function saveOrderToDatabase(paymentId, total, gst, sub, method, utr) {
   }
 }
 
-// ── STEP 4: Official Itemized GST Tax Invoice / Bill PDF Generator ──
-function downloadBill(paymentId, total, gst, sub, utr) {
+// ── STEP 4: Official Itemized GST Tax Invoice / Bill PDF Generator & Viewer ──
+function downloadBill(paymentId, total, gst, sub) {
   const now = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
   const savedOrders = JSON.parse(localStorage.getItem('spiceRoute_db_orders') || '[]');
   const lastOrder = savedOrders[0];
   const items = (lastOrder && lastOrder.items) ? lastOrder.items : Object.values(cart);
   const addr = (lastOrder && lastOrder.deliveryAddress) ? lastOrder.deliveryAddress : (currentDeliveryAddress || {});
-  const displayUtr = utr || (lastOrder ? lastOrder.utrNumber : '') || paymentId;
 
   let rows = '';
   items.forEach(it => {
@@ -569,7 +534,7 @@ function downloadBill(paymentId, total, gst, sub, utr) {
   .header{text-align:center;border-bottom:3px solid #E8621A;padding-bottom:18px;margin-bottom:20px;position:relative}
   .logo{font-size:2.4rem;color:#E8621A;font-weight:700;letter-spacing:2px}
   .sub{color:#666;font-size:0.84rem;margin-top:3px}
-  .paid-stamp{display:inline-block;border:2.5px solid #E8621A;color:#E8621A;padding:5px 18px;font-size:0.85rem;font-weight:800;letter-spacing:2px;margin-top:10px;border-radius:4px}
+  .paid-stamp{display:inline-block;border:2.5px solid #4CAF50;color:#4CAF50;padding:5px 18px;font-size:0.92rem;font-weight:800;letter-spacing:3px;margin-top:10px;border-radius:4px;transform:rotate(-2deg)}
   .order-meta{display:flex;justify-content:space-between;background:#fdf7f0;padding:14px 18px;border-left:4px solid #E8621A;margin-bottom:18px;font-size:0.86rem;border-radius:4px}
   table{width:100%;border-collapse:collapse;margin:18px 0}
   th{background:#E8621A;color:#fff;padding:11px 12px;font-size:0.84rem;text-align:left;letter-spacing:1px;text-transform:uppercase}
@@ -586,15 +551,15 @@ function downloadBill(paymentId, total, gst, sub, utr) {
   <div class="sub"><b>Authentic Indian Cuisine &bull; Doorstep Delivery Kitchen</b></div>
   <div class="sub">12, Chandni Chowk Lane, Old Delhi &mdash; 110006 | Helpline: +91 98765 43210</div>
   <div class="sub">GSTIN: <b>07AABCS1234Z1ZA</b> &bull; FSSAI Lic. No: <b>10019011005678</b></div>
-  <div><span class="paid-stamp">UPI PAYMENT RECORDED &bull; UTR: ${displayUtr}</span></div>
+  <div><span class="paid-stamp">PAID &amp; CONFIRMED &#10004;</span></div>
 </div>
 
 <div class="order-meta">
   <div>
     <b>Invoice No:</b> INV-${paymentId.slice(-8).toUpperCase()}<br/>
-    <b>Bank UTR Number:</b> <span style="font-family:monospace;color:#E8621A"><b>${displayUtr}</b></span><br/>
-    <b>Date &amp; Time:</b> ${now}<br/>
-    <b>Status:</b> <span style="color:#E8621A;font-weight:700">Payment Submitted via UPI</span>
+    <b>Payment Reference:</b> ${paymentId}<br/>
+    <b>Transaction Date:</b> ${now}<br/>
+    <b>Status:</b> <span style="color:#4CAF50;font-weight:700">Confirmed (Paid Online)</span>
   </div>
   <div style="text-align:right">
     <b>Deliver To:</b> ${addr.name || 'Valued Customer'}<br/>
@@ -635,8 +600,8 @@ function downloadBill(paymentId, total, gst, sub, utr) {
 
 <div class="footer">
   <b>Thank you for ordering with Spice Route!</b><br/>
-  Your food order has been placed into the kitchen queue.<br/>
-  For real-time delivery support, contact <b>+91 98765 43210</b> or <b>orders@spiceroute.in</b>
+  Your food is being prepared fresh and will be delivered in thermal insulated packaging.<br/>
+  For delivery support, contact <b>+91 98765 43210</b> or <b>orders@spiceroute.in</b>
 </div>
 
 <br/>
